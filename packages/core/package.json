@@ -1,0 +1,60 @@
+{
+  "name": "@0x9d/core-components",
+  "workspaces": [
+    "src/**/*",
+    "site"
+  ],
+  "version": "0.0.5",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run exports && npm run build-storybook && mv storybook-static docs",
+    "test": "wtr src/**/*.test.js --node-resolve",
+    "exports": "npm run clean && exports src/index.ts src/**/*.tsx --exports --types --main index --minify",
+    "exports:watch": "exports src/index.ts src/**/*.tsx --types --main index --watch",
+    "prepublishOnly": "npm run exports",
+    "storybook": "concurrently \"npm run exports:watch\" \"start-storybook -p 6006\"",
+    "build-storybook": "build-storybook",
+    "clean": "rm -rf dist && rm -rf types && rm -rf storybook-static && rm -rf docs"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "atomico": "^1.29.1"
+  },
+  "devDependencies": {
+    "@atomico/exports": "^0.21.0",
+    "@atomico/hooks": "^3.20.2",
+    "@babel/core": "^7.16.0",
+    "@esm-bundle/chai": "^4.3.4-fix.0",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-docs": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/builder-webpack5": "^6.3.12",
+    "@storybook/html": "^6.3.12",
+    "@storybook/manager-webpack5": "^6.3.12",
+    "@types/estree": "^0.0.50",
+    "@uppercod/vite-meta-url": "latest",
+    "@uppercod/vite-meta-url-load-css": "latest",
+    "@web/test-runner": "^0.13.22",
+    "babel-loader": "^8.2.3",
+    "concurrently": "^6.4.0",
+    "csso": "latest",
+    "storybook-addon-pseudo-states": "^1.0.0",
+    "twind": "^0.16.16",
+    "vite": "latest",
+    "vite-web-test-runner-plugin": "^0.1.0"
+  },
+  "module": "./dist/index.js",
+  "types": "types/components.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./button": "./dist/button/button.js",
+    "./index": "./dist/index.js",
+    "./button.component": "./dist/button/button.component.js"
+  },
+  "typesVersions": {
+    "*": {}
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "16da343b07b596163ca9714b174fef8308ec7827": {
+    "id": "16da343b07b596163ca9714b174fef8308ec7827",
+    "skip": false,
+    "browser": "chrome",
+    "storyPath": [
+      "Button",
+      "Button"
+    ],
+    "storyId": "button--button",
+    "story": {
+      "id": "button--button",
+      "kind": "Button",
+      "name": "Button",
+      "story": "Button",
+      "parameters": {
+        "framework": "html",
+        "fileName": "/Users/nrfrush/Workspace/experiments/@seam/core/src/button/button.stories.ts",
+        "args": {},
+        "argTypes": {},
+        "__id": "button--button",
+        "__isArgsStory": true
+      },
+      "args": {},
+      "initialArgs": {}
+    },
+    "fn": "async function storyTest() {\n    var _testFn$call;\n\n    delay ? await new Promise(resolve => setTimeout(resolve, delay)) : void 0;\n    await ((_testFn$call = testFn === null || testFn === void 0 ? void 0 : testFn.call(this)) !== null && _testFn$call !== void 0 ? _testFn$call : this.expect(await this.takeScreenshot()).to.matchImage());\n  }"
+  }
+}
