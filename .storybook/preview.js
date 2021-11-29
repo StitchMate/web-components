@@ -1,4 +1,4 @@
-import "../dist/button/button";
+import "../packages/core/dist/button/button";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

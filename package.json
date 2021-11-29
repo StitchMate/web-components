@@ -2,6 +2,19 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "@babel/core": "^7.16.0",
+    "@storybook/addon-actions": "^6.4.0",
+    "@storybook/addon-essentials": "^6.4.0",
+    "@storybook/addon-links": "^6.4.0",
+    "@storybook/builder-webpack5": "^6.4.0",
+    "@storybook/html": "^6.4.0",
+    "@storybook/manager-webpack5": "^6.4.0",
+    "babel-loader": "^8.2.3",
+    "lerna": "^4.0.0",
+    "storybook-addon-pseudo-states": "^1.0.0"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook -o docs"
   }
 }
