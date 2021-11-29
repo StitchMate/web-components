@@ -4,7 +4,7 @@
     "src/**/*",
     "site"
   ],
-  "version": "0.0.5",
+  "version": "0.1.0",
   "scripts": {
     "dev": "vite",
     "build": "npm run exports && npm run build-storybook && mv storybook-static docs",
