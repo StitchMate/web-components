@@ -1,5 +1,5 @@
 {
-  "name": "@0x9d/core-components",
+  "name": "@seam-dev/core-components",
   "workspaces": [
     "src/**/*",
     "site"
