@@ -1,7 +1,7 @@
 import { html } from "atomico";
 import { expect } from "@esm-bundle/chai";
 import { fixture } from "atomico/test-dom";
-import { tag } from "./index";
+import { tag } from "./button";
 
 describe("todo-button", () => {
   it("renders", async () => {
