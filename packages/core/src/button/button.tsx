@@ -19,12 +19,14 @@ const button = ({
   loading,
   rounded,
   icon,
+  styles,
   onclick,
 }) => {
-  const styles = {
+  const innerStyles = {
     ...defaultClassList(primary, loading, rounded),
     ...typeClassList(primary, loading)[type],
     ...sizeClassList[size],
+    ...styles,
   };
 
   dom.watch();
@@ -32,7 +34,7 @@ const button = ({
   useRender(() => (
     <button
       slot="button"
-      class={tw(styles)}
+      class={tw(innerStyles)}
       onclick={onclick}
       disabled={loading}
     >
@@ -77,6 +79,9 @@ button.props = {
   },
   icon: {
     type: String,
+  },
+  styles: {
+    type: Object,
   },
   onclick: Function,
 };

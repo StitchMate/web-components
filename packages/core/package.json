@@ -12,7 +12,7 @@
     "exports": "npm run clean && exports src/index.ts src/**/*.tsx --exports --types --main index --minify",
     "exports:watch": "exports src/index.ts src/**/*.tsx --types --main index --watch",
     "prepublishOnly": "npm run exports",
-    "clean": "rm -rf dist && rm -rf types && rm -rf storybook-static && rm -rf docs"
+    "clean": "rm -rf dist && rm -rf types"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",

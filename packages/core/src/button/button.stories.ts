@@ -5,28 +5,34 @@ export default {
     title: {
       name: "title",
       type: { name: "string", required: false, default: "Button" },
+      defaultValue: "Button",
     },
     primary: {
       name: "primary",
       type: { name: "boolean", required: false },
+      defaultValue: true,
     },
     type: {
       name: "type",
       options: ["success", "info", "danger", "dark"],
       control: { type: "radio" },
+      defaultValue: "info",
     },
     size: {
       name: "size",
       options: ["small", "medium", "large"],
       control: { type: "radio" },
+      defaultValue: "medium",
     },
     loading: {
       name: "loading",
       type: { name: "boolean", required: false },
+      defaultValue: false,
     },
     rounded: {
       name: "rounded",
       type: { name: "boolean", required: false },
+      defaultValue: false,
     },
     icon: {
       name: "icon",
@@ -34,6 +40,10 @@ export default {
     },
     onclick: {
       action: "clicked",
+    },
+    styles: {
+      name: "styles",
+      type: { name: "object", required: false },
     },
   },
   parameters: {
@@ -54,6 +64,8 @@ const Template = (args) => {
   button.size = args.size;
   button.loading = args.loading;
   button.rounded = args.rounded;
+  button.styles = args.styles;
+
   if (typeof args.icon != "undefined") {
     button.icon = args.icon;
   }
@@ -65,10 +77,19 @@ const Template = (args) => {
 export const Button = Template.bind({});
 
 Button.args = {
-  title: "Button",
+  rounded: true,
+};
+
+export const PrimaryButton = Template.bind({});
+
+PrimaryButton.args = {
   primary: true,
-  type: "info",
-  size: "medium",
-  loading: false,
-  rounded: false,
+  ...Button.args,
+};
+
+export const SecondaryButton = Template.bind({});
+
+SecondaryButton.args = {
+  primary: false,
+  ...Button.args,
 };
