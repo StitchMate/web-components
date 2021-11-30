@@ -21,6 +21,7 @@ const button = ({
   icon,
   styles,
   onclick,
+  full,
 }) => {
   const innerStyles = {
     ...defaultClassList(primary, loading, rounded),
@@ -39,13 +40,13 @@ const button = ({
       disabled={loading}
     >
       {icon ? <i class={icon}></i> : null}
-      <p>{title}</p>
+      <p class={tw({ "w-full": true })}>{title}</p>
       {loading ? <i class="fas fa-circle-notch fa-spin"></i> : null}
     </button>
   ));
 
   return (
-    <host shadowDom>
+    <host shadowDom class={tw({ "w-full": full })}>
       <slot name="button"></slot>
     </host>
   );
@@ -82,6 +83,10 @@ button.props = {
   },
   styles: {
     type: Object,
+  },
+  full: {
+    type: Boolean,
+    value: false,
   },
   onclick: Function,
 };

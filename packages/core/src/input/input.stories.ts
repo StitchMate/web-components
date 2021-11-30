@@ -7,11 +7,6 @@ export default {
       type: { name: "string", required: false, default: "Placeholder" },
       defaultValue: "Placeholder",
     },
-    focused: {
-      name: "focused",
-      type: { name: "boolean", required: false },
-      defaultValue: false,
-    },
     icon: {
       name: "icon",
       type: { name: "string", required: false },
@@ -43,7 +38,6 @@ const Template = (args) => {
   const input = document.createElement("seam-input");
 
   input.placeholder = args.placeholder;
-  input.focused = args.focused;
   input.value = args.value;
   input.type = args.type;
 

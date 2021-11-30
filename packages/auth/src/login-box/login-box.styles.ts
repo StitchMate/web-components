@@ -9,8 +9,6 @@ const defaultClassList = (primary, loading = false, rounded = false) => {
     "items-center": true,
     "gap-2": true,
     "disabled:opacity-50": loading,
-    "w-full": true,
-    "text-center": true,
   };
 };
 

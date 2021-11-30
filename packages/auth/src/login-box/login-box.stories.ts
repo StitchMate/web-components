@@ -34,11 +34,6 @@ export default {
       type: { name: "boolean", required: false },
       defaultValue: false,
     },
-    full: {
-      name: "full",
-      type: { name: "boolean", required: false },
-      defaultValue: false,
-    },
     icon: {
       name: "icon",
       type: { name: "string", required: false },
@@ -70,7 +65,6 @@ const Template = (args) => {
   button.loading = args.loading;
   button.rounded = args.rounded;
   button.styles = args.styles;
-  button.full = args.full;
 
   if (typeof args.icon != "undefined") {
     button.icon = args.icon;
