@@ -1,0 +1,1 @@
+import{h as o,render as r,useHost as u,useMemo as i,useEffect as c}from"atomico";var f=o("host");function n(t){return t&&typeof t=="object"?(t=t.type=="host"?t:o("host",null,t),t):f}function l(t,s){let e=u();e.id=e.id||Symbol(),i(()=>r(n(t()),e.current,e.id),s),c(()=>()=>r(n(),e.current,e.id),[])}export{l as a};

@@ -41,7 +41,9 @@
   "exports": {
     ".": "./dist/index.js",
     "./button": "./dist/button/button.js",
-    "./index": "./dist/index.js"
+    "./index": "./dist/index.js",
+    "./container": "./dist/container/container.js",
+    "./input": "./dist/input/input.js"
   },
   "typesVersions": {
     "*": {}

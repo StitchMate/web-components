@@ -1,5 +1,3 @@
-import { Button } from "./button/button";
-import { Container } from "./container/container";
-
-customElements.define("todo-button", Button);
-customElements.define("seam-container", Container);
+export { Button } from "./button/button";
+export { Container } from "./container/container";
+export { Input } from "./input/input";
