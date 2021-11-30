@@ -9,23 +9,11 @@ import { faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons";
 library.add(faEnvelope);
 library.add(faKey);
 
-const loginBox = ({}) => {
-  let outerStyles = {
-    "bg-white": true,
-    rounded: true,
-    "py-8": true,
-    "px-8": true,
-    "sm:px-16": true,
-    flex: true,
-    "flex-col": true,
-    "gap-2": true,
-    "shadow-lg": true,
-  };
-
+const signInForm = ({}) => {
   dom.watch();
 
   useRender(() => (
-    <div slot="loginBox" class={tw(outerStyles)}>
+    <div slot="sign-in-form">
       <h1 class={tw({ "text-xl": true, "text-blue-500": true })}>Sign In</h1>
       <p
         class={tw({
@@ -58,17 +46,15 @@ const loginBox = ({}) => {
 
   return (
     <host shadowDom>
-      <slot name="loginBox">
-        <slot />
-      </slot>
+      <slot name="sign-in-form"></slot>
     </host>
   );
 };
 
-loginBox.props = {};
+signInForm.props = {};
 
-export const LoginBox = c(loginBox);
+export const SignInForm = c(signInForm);
 
-export const tag = "seam-login-box";
+export const tag = "seam-sign-in-form";
 
-customElements.define(tag, LoginBox);
+customElements.define(tag, SignInForm);

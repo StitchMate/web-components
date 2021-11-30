@@ -4,7 +4,7 @@
     "src/**/*",
     "site"
   ],
-  "version": "0.1.2",
+  "version": "0.1.3",
   "scripts": {
     "dev": "vite",
     "build": "npm run exports",
@@ -44,6 +44,7 @@
   },
   "exports": {
     ".": "./dist/index.js",
-    "./login-box": "./dist/login-box/login-box.js"
+    "./login-box": "./dist/login-box/login-box.js",
+    "./sign-in-form": "./dist/sign-in-form/sign-in-form.js"
   }
 }
