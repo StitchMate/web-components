@@ -21,6 +21,10 @@ export default {
       control: { type: "radio" },
       defaultValue: "text",
     },
+    error: {
+      name: "error",
+      type: { name: "boolean", required: false },
+    },
     onchange: {
       action: "changed",
     },
@@ -40,6 +44,7 @@ const Template = (args) => {
   input.placeholder = args.placeholder;
   input.value = args.value;
   input.type = args.type;
+  input.error = args.error;
 
   if (typeof args.icon != "undefined") {
     input.icon = args.icon;

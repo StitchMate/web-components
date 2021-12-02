@@ -3,15 +3,8 @@ import { tw } from "twind";
 import { useRender } from "@atomico/hooks/use-render";
 import "@seam-dev/core-components/input";
 import "@seam-dev/core-components/button";
-import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import { faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons";
-
-library.add(faEnvelope);
-library.add(faKey);
 
 const signInForm = ({}) => {
-  dom.watch();
-
   useRender(() => (
     <div slot="sign-in-form">
       <h1 class={tw({ "text-xl": true, "text-blue-500": true })}>Sign In</h1>

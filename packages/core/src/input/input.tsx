@@ -1,25 +1,25 @@
-import { c, useProp } from "atomico";
+import { c } from "atomico";
 import { tw } from "twind";
 import { useRender } from "@atomico/hooks/use-render";
 import { containerStyles, inputStyles, iconStyles } from "./input.styles";
 
-const input = ({ placeholder, icon, value, type, onchange }) => {
+const input = ({ placeholder, icon, type, value, error, onchange }) => {
   useRender(() => (
-    <div slot="input" class={tw(containerStyles(false))}>
+    <div slot="input" class={tw(containerStyles(error))}>
       {typeof icon != "undefined" ? <i class={tw(iconStyles(icon))} /> : null}
       <input
         type={type}
-        class={tw(inputStyles)}
+        class={tw(inputStyles(error))}
         placeholder={placeholder}
-        value={value}
         oninput={onchange}
+        value={value}
       ></input>
     </div>
   ));
 
   return (
     <host shadowDom>
-      <slot name="input"></slot>
+      <slot name="input" />
     </host>
   );
 };
@@ -38,6 +38,10 @@ input.props = {
   type: {
     type: String,
     value: "text",
+  },
+  error: {
+    type: Boolean,
+    value: false,
   },
   onchange: Function,
 };

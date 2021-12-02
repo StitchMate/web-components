@@ -1,28 +1,36 @@
-const containerStyles = (focused) => ({
-  "bg-white": true,
-  border: true,
+const containerStyles = (error) => ({
   flex: true,
-  "py-2": true,
-  "h-10": true,
-  "px-2": true,
   "items-center": true,
+  "h-10": true,
+  "bg-white": true,
+  relative: true,
+  border: true,
+  "border-red-300": error,
   rounded: true,
-  "border-blue-500": focused,
 });
 
-const inputStyles = {
-  "appearance-none": true,
+const inputStyles = (error) => ({
+  "h-full": true,
+  "appearance-none": false,
   "leading-tight": true,
+  "pl-8": true,
+  "pr-2": true,
   "focus:outline-none": true,
-  "focus:border-transparent": true,
+  "focus:ring-blue-300": !error,
+  "focus:ring-red-300": error,
+  "focus:ring": true,
   "text-sm": true,
   "font-light": true,
-};
+  rounded: true,
+});
 
 const iconStyles = (icon) => {
   let iconStyles = {
     "text-blue-500": true,
-    "mr-2": true,
+    absolute: true,
+    flex: true,
+    "items-center": true,
+    "ml-2": true,
   };
 
   iconStyles[icon] = true;

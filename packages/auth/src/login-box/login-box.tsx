@@ -3,11 +3,6 @@ import { tw } from "twind";
 import { useRender } from "@atomico/hooks/use-render";
 import "@seam-dev/core-components/input";
 import "@seam-dev/core-components/button";
-import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import { faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons";
-
-library.add(faEnvelope);
-library.add(faKey);
 
 const loginBox = ({}) => {
   let outerStyles = {
@@ -21,8 +16,6 @@ const loginBox = ({}) => {
     "gap-2": true,
     "shadow-lg": true,
   };
-
-  dom.watch();
 
   useRender(() => (
     <div slot="loginBox" class={tw(outerStyles)}>

@@ -6,10 +6,6 @@ import {
   typeClassList,
   sizeClassList,
 } from "./button.styles";
-import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
-
-library.add(faCircleNotch);
 
 const button = ({
   title,
@@ -29,8 +25,6 @@ const button = ({
     ...sizeClassList[size],
     ...styles,
   };
-
-  dom.watch();
 
   useRender(() => (
     <button
