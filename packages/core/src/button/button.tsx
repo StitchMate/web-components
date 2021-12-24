@@ -1,10 +1,15 @@
-import { Props, c, css } from "atomico";
+import { Props, c } from "atomico";
 import tailwindcss from "../tailwindcss.css";
+import classNames from "classnames/index";
 
 function button({
   name,
   loading,
   disabled,
+  ghost,
+  spacing,
+  kind,
+  skeleton,
   full,
   onClick,
 }: Props<typeof button.props>) {
@@ -13,38 +18,64 @@ function button({
       <button
         role="button"
         ariaLabel={name}
-        class={`
-          flex
-          items-center
-          justify-items-center
-          gap-1
-          ${!disabled ? "bg-blue-700" : ""}
-          ${!disabled ? "hover:bg-blue-600" : ""}
-          ${full ? "w-full" : ""}
-          h-8
-          px-4
-          py-2
-          rounded
-          ${loading ? "w-24" : ""}
-          ${disabled ? "bg-gray-300" : ""}
-          ${disabled ? "opacity-30" : ""}
-        `}
+        class={classNames(
+          "flex",
+          "items-enter",
+          "justify-items-center",
+          "gap-1",
+          "rounded",
+          {
+            "py-2": spacing == "default" && kind != "link",
+            "py-1": spacing == "compact" && kind != "link",
+            "px-4": kind != "link",
+            "h-8": spacing == "default" && kind != "link",
+            "h-6": spacing == "compact" && kind != "link",
+            "bg-blue-700": kind == "primary",
+            "hover:bg-blue-600": kind == "primary",
+            "bg-amber-400": !ghost && kind == "warning",
+            "hover:bg-yellow-400": !ghost && kind == "warning",
+            "bg-red-500": !ghost && kind == "danger",
+            "hover:bg-red-400": !ghost && kind == "danger",
+            "bg-transparent": ghost,
+            "hover:bg-gray-300/30": ghost && kind != "link",
+            "hover:bg-yellow-400/30": ghost && kind == "warning",
+            "hover:bg-red-400/30": ghost && kind == "danger",
+            "hover:bg-blue-600/30": ghost && kind == "primary",
+            "w-full": full,
+            "w-24": loading || skeleton,
+            "bg-gray-300/30": disabled || skeleton,
+            "animate-pulse": skeleton,
+          }
+        )}
         onclick={onClick ? onClick : undefined}
-        disabled={loading || disabled}
+        disabled={loading || disabled || skeleton}
       >
         <slot
           name="before"
-          class={`flex-1 ${loading ? "hidden" : null}`}
+          class={classNames({ hidden: skeleton || loading })}
         ></slot>
         <p
-          class={`flex-1 text-xs text-white font-sans ${
-            loading ? "hidden" : null
-          }`}
+          class={classNames("flex-1", "text-xs", "font-sans", {
+            "text-white": !ghost,
+            "text-gray-500": ghost,
+            "text-gray-700": kind == "warning",
+            "text-blue-700":
+              (ghost && kind == "primary") || (!ghost && kind == "link"),
+            "text-amber-400": ghost && kind == "warning",
+            "text-red-500": ghost && kind == "danger",
+            "hover:underline": kind == "link",
+            "hover:text-blue-600": !ghost && kind == "link",
+            "hover:text-gray-400": ghost && kind == "link",
+            hidden: skeleton || loading,
+          })}
         >
           {name}
         </p>
-        <slot name="after" class={`flex-1 ${loading ? "hidden" : null}`}></slot>
-        {loading ? (
+        <slot
+          name="after"
+          class={classNames("flex-1", { hidden: skeleton || loading })}
+        ></slot>
+        {loading && !skeleton ? (
           <svg
             aria-hidden="true"
             focusable="false"
@@ -79,6 +110,14 @@ button.props = {
     type: String,
     value: "medium",
   },
+  kind: {
+    type: String,
+    value: "primary",
+  },
+  skeleton: {
+    type: Boolean,
+    value: false,
+  },
   loading: {
     type: Boolean,
     reflect: true,
@@ -88,6 +127,10 @@ button.props = {
     type: Boolean,
     reflect: true,
     value: false,
+  },
+  spacing: {
+    type: String,
+    value: "default",
   },
   full: {
     type: Boolean,

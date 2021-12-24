@@ -12,6 +12,14 @@ export declare const Button: import("atomico/types/dom").Atom<Props<{
         type: StringConstructor;
         value: string;
     };
+    kind: {
+        type: StringConstructor;
+        value: string;
+    };
+    skeleton: {
+        type: BooleanConstructor;
+        value: boolean;
+    };
     loading: {
         type: BooleanConstructor;
         reflect: boolean;
@@ -21,6 +29,10 @@ export declare const Button: import("atomico/types/dom").Atom<Props<{
         type: BooleanConstructor;
         reflect: boolean;
         value: boolean;
+    };
+    spacing: {
+        type: StringConstructor;
+        value: string;
     };
     full: {
         type: BooleanConstructor;
