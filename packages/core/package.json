@@ -4,51 +4,54 @@
     "src/**/*",
     "site"
   ],
-  "version": "0.2.1",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "vite",
-    "build": "npm run exports",
-    "test": "wtr src/**/*.test.js --node-resolve",
-    "exports": "npm run clean && exports src/index.ts src/**/*.tsx --exports --types --main index --minify",
-    "exports:watch": "exports src/index.ts src/**/*.tsx --types --main index --watch",
+    "start": "vite",
+    "build": "vite build --outDir docs --base /",
+    "test": "wtr src/**/*.test.tsx --node-resolve",
+    "exports": "npm run clean && exports src/index.ts src/**/*.tsx --exports --main index --types --minify",
     "prepublishOnly": "npm run exports",
     "clean": "rm -rf dist && rm -rf types",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "create-component": "scaff template/component-tsx src"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-regular-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "atomico": "^1.29.1"
+    "atomico": "^1.34.5"
   },
   "devDependencies": {
-    "@atomico/exports": "^0.21.0",
-    "@atomico/hooks": "^3.20.2",
-    "@babel/core": "^7.16.0",
+    "@atomico/custom-elements-manifest": "^0.1.0",
+    "@atomico/exports": "^0.22.1",
+    "@atomico/scaffold": "^0.2.0",
     "@esm-bundle/chai": "^4.3.4-fix.0",
-    "@types/estree": "^0.0.50",
-    "@uppercod/vite-meta-url": "latest",
-    "@uppercod/vite-meta-url-load-css": "latest",
-    "@web/test-runner": "^0.13.22",
-    "babel-loader": "^8.2.3",
-    "concurrently": "^6.4.0",
-    "csso": "latest",
-    "twind": "^0.16.16",
+    "@uppercod/vite-meta-url": "^1.5.0",
+    "@uppercod/vite-meta-url-load-css": "^1.2.0",
+    "@web/test-runner": "^0.13.23",
+    "tailwindcss": "^3.0.7",
     "vite": "latest",
-    "vite-plugin-compress": "^2.1.0",
     "vite-web-test-runner-plugin": "^0.1.0"
   },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {}
+    }
+  },
   "module": "./dist/index.js",
-  "types": "types/components.d.ts",
   "exports": {
     ".": "./dist/index.js",
-    "./button": "./dist/button/button.js",
-    "./index": "./dist/index.js",
-    "./container": "./dist/container/container.js",
-    "./input": "./dist/input/input.js"
+    "./test": "./dist/test/test.js",
+    "./button": "./dist/button/button.js"
   },
+  "types": "types/index.d.ts",
   "typesVersions": {
-    "*": {}
+    "*": {
+      "index": [
+        "./types/index.d.ts"
+      ],
+      "test": [
+        "./types/test/test.d.ts"
+      ],
+      "button": [
+        "./types/button/button.d.ts"
+      ]
+    }
   }
 }

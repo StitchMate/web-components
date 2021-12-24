@@ -1,0 +1,1 @@
+:root{--theme-color: black}html,body{padding:8px;display:flex;flex-direction:column}body{font-family:Poppins,sans-serif}.message{display:flex;flex-flow:row nowrap;align-items:center;max-width:45rem}.message_text{padding-left:1rem;margin-left:1rem;color:var(--theme-color);border-left:.2rem solid var(--theme-color)}@media (max-width: 45rem){.message{flex-flow:column nowrap}}
