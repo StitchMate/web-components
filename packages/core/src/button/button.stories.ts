@@ -2,7 +2,7 @@ export default {
   title: "Button",
   component: "seam-button",
   argTypes: {
-    title: {
+    name: {
       name: "name",
       type: { name: "string", required: false, default: "Button" },
       defaultValue: "Button",
@@ -20,7 +20,7 @@ export default {
 const Template = (args) => {
   const button = document.createElement("seam-button");
 
-  button.title = args.title;
+  button.name = args.name;
 
   return button;
 };
