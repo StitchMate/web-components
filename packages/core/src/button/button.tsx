@@ -98,4 +98,6 @@ button.props = {
 
 button.styles = [tailwindcss];
 
+export const Button = c(button);
+
 customElements.define("seam-button", c(button));
