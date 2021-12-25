@@ -11,11 +11,6 @@
     />
     <link rel="stylesheet" href="./src/page.css" />
     <script async type="module" src="./src/index.ts"></script>
-    <script>
-      function yes() {
-        alert("yes");
-      }
-    </script>
   </head>
   <body>
     <h1>This is an example of how to use Tailwind with Atomico</h1>
@@ -26,6 +21,13 @@
       >
       components to demonstrate the use of Tailwind within the shadowDOM
     </p>
-    <seam-button title="Button" kind="link"></seam-button>
+    <seam-button title="Button"></seam-button>
+    <seam-text-input
+      auto-focus="true"
+      label-text="hi"
+      placeholder="Placeholder"
+      helper-text="hello"
+      validity-message="A valid value is required"
+    ></seam-text-input>
   </body>
 </html>
