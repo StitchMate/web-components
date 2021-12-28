@@ -40,7 +40,8 @@
   "exports": {
     ".": "./dist/index.js",
     "./test": "./dist/test/test.js",
-    "./button": "./dist/button/button.js"
+    "./button": "./dist/button/button.js",
+    "./text-input": "./dist/text-input/text-input.js"
   },
   "types": "types/index.d.ts",
   "typesVersions": {
@@ -53,6 +54,9 @@
       ],
       "button": [
         "./types/button/button.d.ts"
+      ],
+      "text-input": [
+        "./types/text-input/text-input.d.ts"
       ]
     }
   }

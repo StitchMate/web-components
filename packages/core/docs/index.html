@@ -11,13 +11,8 @@
     />
     
     
-    <script>
-      function yes() {
-        alert("yes");
-      }
-    </script>
-    <script async type="module" crossorigin src="/assets/index.42d96ce4.js"></script>
-    <link rel="modulepreload" href="/assets/vendor.bbc0d88d.js">
+    <script async type="module" crossorigin src="/assets/index.5d6e3f59.js"></script>
+    <link rel="modulepreload" href="/assets/vendor.e30ad968.js">
     <link rel="stylesheet" href="/assets/index.2e02fce2.css">
   </head>
   <body>
@@ -29,6 +24,16 @@
       >
       components to demonstrate the use of Tailwind within the shadowDOM
     </p>
-    <seam-button title="Button" kind="link"></seam-button>
+    <seam-button title="Button"></seam-button>
+    <seam-text-input
+      kind="password"
+      auto-focus="true"
+      label-text="hi"
+      placeholder="Placeholder"
+      helper-text="hello"
+      value="abc123"
+      invalid
+      validity-message="The big brown fox jumped over the little ass moon. The big brown fox jumped over the little ass moon. The big brown fox jumped over the little as moon. The big brown fox jumped over the little ass moon. The big brown fox jumped over the little ass moon. The big brown fox jumped over the little as moon."
+    ></seam-text-input>
   </body>
 </html>

@@ -25,6 +25,6 @@ const Template = (args) => {
   return button;
 };
 
-export const Button = Template.bind({});
+export const Primary = Template.bind({});
 
 Button.args = {};

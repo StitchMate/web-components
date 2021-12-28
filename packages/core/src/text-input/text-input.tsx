@@ -16,7 +16,7 @@ function textInput({
   helperText,
   validityMessage,
   iconPlacement,
-}): Props<typeof textInput> {
+}: Props<typeof textInput.props>) {
   let [showPassword, setShowPassword] = useState(false);
   return (
     <host shadowDom>
@@ -36,7 +36,8 @@ function textInput({
             "w-full",
             "items-center",
             "h-8",
-            "bg-gray-200",
+            { "bg-white": !disabled },
+            { "bg-gray-100": disabled },
             "relative",
             { border: !disabled },
             { "border-red-500": invalid },
@@ -45,7 +46,7 @@ function textInput({
         >
           <slot name="before" class="absolute flex items-center ml-2"></slot>
           <input
-            autocomplete={autocomplete ? autocomplete : null}
+            autocomplete={autocomplete ? autocomplete : ""}
             autofocus={autoFocus}
             disabled={disabled}
             readonly={readOnly}
@@ -66,6 +67,7 @@ function textInput({
                 "pl-2": iconPlacement == "after",
                 "pl-4": !iconPlacement,
               },
+              "disabled:bg-transparent",
               "pr-2",
               "focus:outline-none",
               "focus:ring-blue-300",
@@ -76,7 +78,7 @@ function textInput({
               "rounded"
             )}
             placeholder={placeholder}
-            oninput={onChange ? onChange : null}
+            oninput={onChange ? onChange : () => {}}
             value={value}
           />
           {!invalid ? (
