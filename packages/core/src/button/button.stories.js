@@ -27,4 +27,4 @@ const Template = (args) => {
 
 export const Primary = Template.bind({});
 
-Button.args = {};
+Primary.args = {};
