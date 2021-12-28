@@ -31,29 +31,41 @@ function button({
             "h-8": spacing == "default" && kind != "link",
             "h-6": spacing == "compact" && kind != "link",
             "bg-blue-700": kind == "primary",
-            "hover:bg-blue-600": kind == "primary",
+            "hover:bg-blue-700":
+              !ghost && kind == "primary" && !disabled && !skeleton,
             "bg-amber-400": !ghost && kind == "warning",
-            "hover:bg-yellow-400": !ghost && kind == "warning",
+            "hover:bg-yellow-400":
+              !ghost && kind == "warning" && !disabled && !skeleton,
             "bg-red-500": !ghost && kind == "danger",
-            "hover:bg-red-400": !ghost && kind == "danger",
+            "hover:bg-red-400":
+              !ghost && kind == "danger" && !disabled && !skeleton,
             "bg-transparent": ghost,
-            "hover:bg-gray-300/30": ghost && kind != "link",
-            "hover:bg-yellow-400/30": ghost && kind == "warning",
-            "hover:bg-red-400/30": ghost && kind == "danger",
-            "hover:bg-blue-600/30": ghost && kind == "primary",
+            "hover:bg-gray-300/30":
+              ghost && kind != "link" && !skeleton && !disabled,
+            "hover:bg-yellow-400/30":
+              ghost && kind == "warning" && !skeleton && !disabled,
+            "hover:bg-red-400/30":
+              ghost && kind == "danger" && !skeleton && !disabled,
+            "hover:bg-blue-600/30":
+              ghost && kind == "primary" && !skeleton && !disabled,
             "w-full": full,
             "w-24": loading || skeleton,
             "bg-gray-300/30": disabled || skeleton,
             "animate-pulse": skeleton,
+            "cursor-wait": loading,
           }
         )}
         onclick={onClick ? onClick : undefined}
         disabled={loading || disabled || skeleton}
       >
-        <slot
-          name="before"
-          class={classNames({ hidden: skeleton || loading })}
-        ></slot>
+        {!loading ? (
+          <slot
+            name="before"
+            class={classNames({
+              hidden: skeleton || loading,
+            })}
+          ></slot>
+        ) : null}
         <p
           class={classNames("flex-1", "text-xs", "font-sans", {
             "text-white": !ghost,
@@ -71,17 +83,24 @@ function button({
         >
           {name}
         </p>
-        <slot
-          name="after"
-          class={classNames("flex-1", { hidden: skeleton || loading })}
-        ></slot>
+        {!loading ? (
+          <slot
+            name="after"
+            class={classNames("flex-1", { hidden: skeleton || loading })}
+          ></slot>
+        ) : null}
         {loading && !skeleton ? (
           <svg
             aria-hidden="true"
             focusable="false"
             data-prefix="far"
             data-icon="spinner-third"
-            class="animate-spin text-white flex-1 h-4"
+            class={classNames("animate-spin", "flex-1", "h-4", {
+              "text-white": !ghost,
+              "text-amber-400": ghost && kind == "warning",
+              "text-blue-700": ghost && kind == "primary",
+              "text-red-500": ghost && kind == "danger",
+            })}
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"

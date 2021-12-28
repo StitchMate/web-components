@@ -22,9 +22,15 @@ function textInput({
     <host shadowDom>
       {labelText ? (
         <label
-          class={classNames("text-xs", "font-light", "font-sans", {
-            "text-gray-300": disabled,
-          })}
+          class={classNames(
+            "text-xs",
+            "font-light",
+            "font-sans",
+            "text-gray-500",
+            {
+              "text-gray-300": disabled,
+            }
+          )}
         >
           {labelText}
         </label>
@@ -44,7 +50,10 @@ function textInput({
             "rounded"
           )}
         >
-          <slot name="before" class="absolute flex items-center ml-2"></slot>
+          <slot
+            name="before"
+            class="absolute flex items-center ml-2 w-6"
+          ></slot>
           <input
             autocomplete={autocomplete ? autocomplete : ""}
             autofocus={autoFocus}
@@ -59,19 +68,21 @@ function textInput({
               "font-sans",
               "appearance-none",
               "leading-tight",
+              "focus:outline-none",
               {
-                "pl-8": iconPlacement == "before",
+                "pl-10": iconPlacement == "before",
                 "pr-2": iconPlacement == "before",
                 "pr-4": !iconPlacement,
-                "pr-8": iconPlacement == "after",
+                "pr-10": iconPlacement == "after",
                 "pl-2": iconPlacement == "after",
                 "pl-4": !iconPlacement,
+                "cursor-not-allowed": readOnly,
+                "focus:ring-blue-300": !readOnly,
+                "focus:ring": !readOnly,
               },
+              "disabled:text-gray-300",
               "disabled:bg-transparent",
               "pr-2",
-              "focus:outline-none",
-              "focus:ring-blue-300",
-              "focus:ring",
               "text-xs",
               "disabled:placeholder-gray-300",
               "font-light",
@@ -84,7 +95,7 @@ function textInput({
           {!invalid ? (
             <slot
               name="after"
-              class="absolute flex items-center right-0 mr-2"
+              class="absolute flex items-center left-0 w-6"
             ></slot>
           ) : (
             <svg
@@ -92,7 +103,7 @@ function textInput({
               focusable="false"
               data-prefix="fas"
               data-icon="circle-exclamation"
-              class="text-red-500 svg-inline--fa fa-circle-exclamation w-4 mr-2"
+              class="absolute flex items-center right-0 text-red-500 svg-inline--fa fa-circle-exclamation w-4 mr-2"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
@@ -111,7 +122,7 @@ function textInput({
             data-prefix="far"
             data-icon="eye"
             onclick={() => setShowPassword(true)}
-            class="svg-inline--fa fa-eye w-4 text-default ml-2"
+            class="svg-inline--fa fa-eye w-4 text-gray-500 ml-2"
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 576 512"
@@ -129,7 +140,7 @@ function textInput({
             data-prefix="far"
             data-icon="eye-slash"
             onclick={() => setShowPassword(false)}
-            class="svg-inline--fa fa-eye-slash text-default w-4 ml-2"
+            class="svg-inline--fa fa-eye-slash text-gray-500 w-4 ml-2"
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 640 512"
@@ -143,9 +154,15 @@ function textInput({
       </div>
       {!invalid && helperText ? (
         <label
-          class={classNames("text-xs", "font-light", "font-sans", {
-            "text-gray-300": disabled,
-          })}
+          class={classNames(
+            "text-xs",
+            "font-light",
+            "font-sans",
+            "text-gray-500",
+            {
+              "text-gray-300": disabled,
+            }
+          )}
         >
           {helperText}
         </label>
