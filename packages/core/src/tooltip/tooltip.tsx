@@ -1,7 +1,10 @@
 import { c, useRef, useEffect, Props, useState } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import tailwindcss from "../tailwindcss.css";
-import { createPopper, Placement } from "@popperjs/core";
+import { Placement } from "@popperjs/core/lib/enums";
+import { createPopper } from "@popperjs/core/lib/popper-lite";
+import flip from "@popperjs/core/lib/modifiers/flip";
+import preventOverflow from "@popperjs/core/lib/modifiers/preventOverflow";
 import classNames from "classnames";
 
 function tooltip({ placement }: Props<typeof tooltip.props>) {
@@ -33,10 +36,20 @@ function tooltip({ placement }: Props<typeof tooltip.props>) {
       (child2[0] as HTMLElement).style.zIndex = "2";
       (child1[0] as HTMLElement).setAttribute("aria-describedby", "tooltip");
       createPopper(child1[0] as HTMLElement, child2[0] as HTMLElement, {
+        modifiers: [flip, preventOverflow],
         placement: placement as Placement,
       });
     }
   });
+
+  useEffect(() => {
+    if (child2.length > 0) {
+      (child2[0] as HTMLElement).setAttribute(
+        "aria-hidden",
+        visible.toString()
+      );
+    }
+  }, [visible]);
 
   return (
     <host shadowDom>
@@ -45,6 +58,8 @@ function tooltip({ placement }: Props<typeof tooltip.props>) {
         name="target"
         ref={targetRef}
         onmouseenter={() => setVisible(true)}
+        onfocusin={() => setVisible(true)}
+        onfocusout={() => setVisible(false)}
         onmouseleave={() => setVisible(false)}
       ></slot>
       <slot
