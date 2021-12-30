@@ -11,11 +11,6 @@
     />
     <link rel="stylesheet" href="./src/page.css" />
     <script async type="module" src="./src/index.ts"></script>
-    <script>
-      function nextChar() {
-        alert("hi");
-      }
-    </script>
   </head>
   <body>
     <h1>This is an example of how to use Tailwind with Atomico</h1>
@@ -26,10 +21,15 @@
       >
       components to demonstrate the use of Tailwind within the shadowDOM
     </p>
-    <seam-tooltip placement="right">
-      <seam-button slot="target" name="hi"></seam-button>
-      <seam-tooltip-content slot="tooltip"> hi </seam-tooltip-content>
-    </seam-tooltip>
+    <div style="display: flex; justify-content: start; width: 100%">
+      <seam-tooltip placement="auto">
+        <seam-button slot="target" name="hi"></seam-button>
+        <seam-tooltip-content slot="tooltip"
+          >hi my name is nicholas frush and this is my <br />
+          huge brown fox blah blah blah</seam-tooltip-content
+        >
+      </seam-tooltip>
+    </div>
     <seam-text-input
       skeleton
       kind="password"

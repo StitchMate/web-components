@@ -18,25 +18,22 @@ function tooltip({ placement }: Props<typeof tooltip.props>) {
 
   useEffect(() => {
     if (child1 && child1.length > 0 && child2.length > 0) {
-      let child2Target: HTMLElement = (
-        child2[0] as HTMLElement
-      )?.shadowRoot?.children?.item(0) as HTMLElement;
-
-      let targetHeight = child2Target ? child2Target.offsetHeight : 0;
-      let targetWidth = child2Target ? child2Target.offsetWidth : 0;
       (child2[0] as HTMLElement).setAttribute("role", "tooltip");
-      (child2[0] as HTMLElement).setAttribute(
-        "target-height",
-        targetHeight.toString()
-      );
-      (child2[0] as HTMLElement).setAttribute(
-        "target-width",
-        targetWidth.toString()
-      );
       (child2[0] as HTMLElement).style.zIndex = "2";
       (child1[0] as HTMLElement).setAttribute("aria-describedby", "tooltip");
+      let flipMod = flip;
+      flipMod.options = {
+        allowedAutoPlacements: [
+          "top",
+          "bottom",
+          "top-start",
+          "top-end",
+          "bottom-start",
+          "bottom-end",
+        ],
+      };
       createPopper(child1[0] as HTMLElement, child2[0] as HTMLElement, {
-        modifiers: [flip, preventOverflow],
+        modifiers: [flipMod, preventOverflow],
         placement: placement as Placement,
       });
     }
@@ -46,7 +43,7 @@ function tooltip({ placement }: Props<typeof tooltip.props>) {
     if (child2.length > 0) {
       (child2[0] as HTMLElement).setAttribute(
         "aria-hidden",
-        visible.toString()
+        (!visible).toString()
       );
     }
   }, [visible]);
