@@ -13,6 +13,7 @@ function textInput({
   labelText,
   disabled,
   readOnly,
+  skeleton,
   helperText,
   validityMessage,
   full,
@@ -32,7 +33,12 @@ function textInput({
             "font-sans",
             "text-gray-500",
             {
-              "text-gray-300": disabled,
+              "text-gray-300": disabled && !skeleton,
+              "text-transparent": skeleton,
+              "bg-gray-300": skeleton,
+              "animate-pulse": skeleton,
+              rounded: skeleton,
+              "select-none": skeleton,
             }
           )}
         >
@@ -40,113 +46,134 @@ function textInput({
         </label>
       ) : null}
       <div class="flex">
-        <div
-          class={classNames(
-            "flex",
-            { "min-w-fit": !full, "w-full": full },
-            "items-center",
-            "h-8",
-            { "bg-white": !disabled },
-            { "bg-gray-100": disabled },
-            "relative",
-            { border: !disabled },
-            { "border-red-500": invalid },
-            "rounded"
-          )}
-        >
-          <slot
-            name="before"
+        {!skeleton ? (
+          <div
             class={classNames(
-              "absolute",
               "flex",
+              { "min-w-fit": !full, "w-full": full },
               "items-center",
-              "ml-2",
-              "w-6",
-              { "text-gray-300": disabled }
-            )}
-          ></slot>
-          <input
-            ref={refInput}
-            autocomplete={autocomplete ? autocomplete : ""}
-            autofocus={autoFocus}
-            disabled={disabled}
-            readonly={readOnly}
-            type={
-              kind == "password" ? (showPassword ? "text" : "password") : kind
-            }
-            class={classNames(
-              "h-full",
-              "w-full",
-              "font-sans",
-              "appearance-none",
-              "leading-tight",
-              "focus:outline-none",
-              {
-                "pl-10": iconPlacement == "before",
-                "pr-2": iconPlacement == "before",
-                "pr-4": !iconPlacement,
-                "pr-10": iconPlacement == "after",
-                "pl-2": iconPlacement == "after",
-                "pl-4": !iconPlacement,
-                "cursor-not-allowed": readOnly,
-                "focus:ring-blue-300": !readOnly,
-                "focus:ring": !readOnly,
-              },
-              "disabled:text-gray-300",
-              "disabled:bg-transparent",
-              "pr-2",
-              "text-xs",
-              "disabled:placeholder-gray-300",
-              "font-light",
+              "h-8",
+              { "bg-white": !disabled },
+              { "bg-gray-100": disabled },
+              "relative",
+              { border: !disabled },
+              { "border-red-500": invalid },
               "rounded"
             )}
-            placeholder={placeholder}
-            oninput={
-              onChange ? onChange : () => setValue(refInput.current.value)
-            }
-            value={value}
-          />
-          {!invalid ? (
+          >
             <slot
-              name="after"
+              name="before"
               class={classNames(
                 "absolute",
                 "flex",
                 "items-center",
-                "right-0",
-                "mr-2",
+                "ml-2",
                 "w-6",
                 { "text-gray-300": disabled }
               )}
             ></slot>
-          ) : (
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="circle-exclamation"
-              class="absolute flex items-center right-0 text-red-500 svg-inline--fa fa-circle-exclamation w-4 mr-2"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-            >
-              <path
-                fill="currentColor"
-                d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM232 152C232 138.8 242.8 128 256 128s24 10.75 24 24v128c0 13.25-10.75 24-24 24S232 293.3 232 280V152zM256 400c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 385.9 273.4 400 256 400z"
-              ></path>
-            </svg>
-          )}
-        </div>
+            <input
+              ref={refInput}
+              autocomplete={autocomplete ? autocomplete : ""}
+              autofocus={autoFocus}
+              disabled={disabled}
+              readonly={readOnly}
+              type={
+                kind == "password" ? (showPassword ? "text" : "password") : kind
+              }
+              class={classNames(
+                "h-full",
+                "w-full",
+                "font-sans",
+                "appearance-none",
+                "leading-tight",
+                "focus:outline-none",
+                {
+                  "pl-10": iconPlacement == "before",
+                  "pr-2": iconPlacement == "before",
+                  "pr-4": !iconPlacement,
+                  "pr-10": iconPlacement == "after",
+                  "pl-2": iconPlacement == "after",
+                  "pl-4": !iconPlacement,
+                  "cursor-not-allowed": readOnly,
+                  "focus:ring-blue-300": !readOnly,
+                  "focus:ring": !readOnly,
+                },
+                "disabled:text-gray-300",
+                "disabled:bg-transparent",
+                "pr-2",
+                "text-xs",
+                "disabled:placeholder-gray-300",
+                "font-light",
+                "rounded"
+              )}
+              placeholder={placeholder}
+              oninput={
+                onChange ? onChange : () => setValue(refInput.current.value)
+              }
+              value={value}
+            />
+            {!invalid ? (
+              <slot
+                name="after"
+                class={classNames(
+                  "absolute",
+                  "flex",
+                  "items-center",
+                  "right-0",
+                  "mr-2",
+                  "w-6",
+                  { "text-gray-300": disabled }
+                )}
+              ></slot>
+            ) : (
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="circle-exclamation"
+                class="absolute flex items-center right-0 text-red-500 svg-inline--fa fa-circle-exclamation w-4 mr-2"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM232 152C232 138.8 242.8 128 256 128s24 10.75 24 24v128c0 13.25-10.75 24-24 24S232 293.3 232 280V152zM256 400c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 385.9 273.4 400 256 400z"
+                ></path>
+              </svg>
+            )}
+          </div>
+        ) : (
+          <div
+            class={classNames(
+              "h-8",
+              "bg-gray-300",
+              "rounded",
+              "animate-pulse",
+              {
+                "w-52": !full,
+                "w-full": full,
+              }
+            )}
+          ></div>
+        )}
         {kind == "password" && !showPassword ? (
           <svg
             aria-hidden="true"
             focusable="false"
             data-prefix="far"
             data-icon="eye"
-            onclick={() => (!disabled ? setShowPassword(true) : null)}
+            onclick={() =>
+              !disabled && !skeleton ? setShowPassword(true) : null
+            }
             class={classNames("w-4", "ml-2", {
-              "text-gray-500": !disabled,
-              "text-gray-300": disabled,
+              "text-gray-500": !disabled && !skeleton,
+              "text-gray-300": disabled && !skeleton,
+              "text-transparent": skeleton,
+              "bg-gray-300": skeleton,
+              rounded: skeleton,
+              "animate-pulse": skeleton,
             })}
             role="img"
             xmlns="http://www.w3.org/2000/svg"
@@ -164,10 +191,16 @@ function textInput({
             focusable="false"
             data-prefix="far"
             data-icon="eye-slash"
-            onclick={() => (!disabled ? setShowPassword(false) : null)}
+            onclick={() =>
+              !disabled && !skeleton ? setShowPassword(false) : null
+            }
             class={classNames("w-4", "ml-2", {
-              "text-gray-500": !disabled,
-              "text-gray-300": disabled,
+              "text-gray-500": !disabled && !skeleton,
+              "text-gray-300": disabled && !skeleton,
+              "text-transparent": skeleton,
+              "bg-gray-300": skeleton,
+              rounded: skeleton,
+              "animate-pulse": skeleton,
             })}
             role="img"
             xmlns="http://www.w3.org/2000/svg"
@@ -188,7 +221,11 @@ function textInput({
             "font-sans",
             "text-gray-500",
             {
-              "text-gray-300": disabled,
+              "text-gray-300": disabled && !skeleton,
+              "text-transparent": skeleton,
+              "bg-gray-300": skeleton,
+              "animate-pulse": skeleton,
+              rounded: skeleton,
             }
           )}
         >
@@ -196,7 +233,21 @@ function textInput({
         </label>
       ) : null}
       {invalid && validityMessage ? (
-        <label class="text-red-500 text-xs font-light font-sans">
+        <label
+          class={classNames(
+            "text-red-500",
+            "text-xs",
+            "font-light",
+            "font-sans",
+            {
+              "bg-gray-300": skeleton,
+              "text-transparent": skeleton,
+              "animate-pulse": skeleton,
+              rounded: skeleton,
+              "select-none": skeleton,
+            }
+          )}
+        >
           {validityMessage}
         </label>
       ) : null}
@@ -228,6 +279,10 @@ textInput.props = {
       composed: true,
       cancelable: true,
     },
+  },
+  skeleton: {
+    type: Boolean,
+    value: false,
   },
   helperText: String,
   iconPlacement: String,

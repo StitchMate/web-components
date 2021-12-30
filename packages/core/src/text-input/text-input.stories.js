@@ -32,6 +32,11 @@ export default {
       type: { name: "boolean", required: false },
       defaultValue: false,
     },
+    skeleton: {
+      name: "skeleton",
+      type: { name: "boolean", required: false },
+      defaultValue: false,
+    },
     labelText: {
       name: "labelText",
       type: { name: "string", required: false },
@@ -94,6 +99,7 @@ const Template = (args) => {
   textInput.validityMessage = args.validityMessage;
   textInput.onChange = args.onChange;
   textInput.kind = args.kind;
+  textInput.skeleton = args.skeleton;
 
   return textInput;
 };
@@ -112,4 +118,10 @@ export const Invalid = Template.bind({});
 
 Invalid.args = {
   invalid: true,
+};
+
+export const Skeleton = Template.bind({});
+
+Skeleton.args = {
+  skeleton: true,
 };

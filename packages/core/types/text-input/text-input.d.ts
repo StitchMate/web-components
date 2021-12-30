@@ -24,6 +24,10 @@ export declare const TextInput: import("atomico/types/dom").Atom<Props<{
             cancelable: boolean;
         };
     };
+    skeleton: {
+        type: BooleanConstructor;
+        value: boolean;
+    };
     helperText: StringConstructor;
     iconPlacement: StringConstructor;
     invalid: {
