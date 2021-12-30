@@ -16,10 +16,13 @@ function tooltipContent({
         ref={contentRef}
         class={classNames(
           "inline-block",
-          "bg-blue-200",
+          "bg-white",
           "rounded",
           "p-2",
           "shadow-md",
+          "shadow-gray-400",
+          "border",
+          "border-gray-300",
           "min-w-fit",
           "text-xs",
           {

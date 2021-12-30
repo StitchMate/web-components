@@ -25,7 +25,7 @@ function button({
         ariaLabel={name}
         class={classNames(
           "flex",
-          "items-enter",
+          "items-center",
           "justify-items-center",
           "gap-1",
           "rounded",
@@ -34,14 +34,15 @@ function button({
             "py-2": spacing == "default" && kind != "link",
             "py-1": spacing == "compact" && kind != "link",
             "px-4": kind != "link",
+            "h-10": spacing == "loose" && kind != "link",
             "h-8": spacing == "default" && kind != "link",
             "h-6": spacing == "compact" && kind != "link",
-            "bg-blue-700": kind == "primary",
+            "bg-blue-500": kind == "primary",
             "hover:bg-blue-600":
               !ghost && kind == "primary" && !disabled && !skeleton,
             "active:bg-blue-500":
               !ghost && kind == "primary" && !disabled && !skeleton,
-            "shadow-blue-600":
+            "shadow-blue-400":
               !ghost && kind == "primary" && !disabled && !skeleton,
             "bg-amber-400": !ghost && kind == "warning",
             "hover:bg-yellow-400":
@@ -70,9 +71,9 @@ function button({
               ghost && kind == "danger" && !skeleton && !disabled,
             "active:bg-red-400/30":
               ghost && kind == "danger" && !skeleton && !disabled,
-            "hover:bg-blue-700/20":
+            "hover:bg-blue-500/20":
               ghost && kind == "primary" && !skeleton && !disabled,
-            "active:bg-blue-700/30":
+            "active:bg-blue-500/30":
               ghost && kind == "primary" && !skeleton && !disabled,
             "w-full": full,
             "w-24": (loading || skeleton) && kind != "link",
@@ -90,7 +91,7 @@ function button({
             class={classNames({
               hidden: skeleton || loading,
               "text-white": !ghost && !disabled,
-              "text-blue-700": ghost && kind == "primary",
+              "text-blue-500": ghost && kind == "primary",
               "text-amber-400": ghost && kind == "warning",
               "text-red-500": ghost && kind == "danger",
               "text-gray-400": disabled,
@@ -104,7 +105,7 @@ function button({
             "text-gray-400": disabled,
             "text-gray-500": ghost && kind == "link",
             "text-gray-700": !ghost && kind == "warning",
-            "text-blue-700":
+            "text-blue-500":
               (ghost && kind == "primary") || (!ghost && kind == "link"),
             "text-amber-400": ghost && kind == "warning",
             "text-red-500": ghost && kind == "danger",
