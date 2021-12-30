@@ -1,11 +1,13 @@
-import { c, css, useRef, useEffect, Props } from "atomico";
+import { c, useRef, useEffect, Props, useState } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import tailwindcss from "../tailwindcss.css";
 import { createPopper, Placement } from "@popperjs/core";
+import classNames from "classnames";
 
 function tooltip({ placement }: Props<typeof tooltip.props>) {
   let tooltipRef = useRef();
   let targetRef = useRef();
+  let [visible, setVisible] = useState(false);
 
   let child1 = useSlot(targetRef);
 
@@ -38,8 +40,20 @@ function tooltip({ placement }: Props<typeof tooltip.props>) {
 
   return (
     <host shadowDom>
-      <slot class="inline-block" name="target" ref={targetRef}></slot>
-      <slot name="tooltip" ref={tooltipRef}></slot>
+      <slot
+        class="inline-block"
+        name="target"
+        ref={targetRef}
+        onmouseenter={() => setVisible(true)}
+        onmouseleave={() => setVisible(false)}
+      ></slot>
+      <slot
+        name="tooltip"
+        class={classNames({
+          hidden: !visible,
+        })}
+        ref={tooltipRef}
+      ></slot>
     </host>
   );
 }
