@@ -1,4 +1,4 @@
-import { Props, c } from "atomico";
+import { Props, c, useEvent } from "atomico";
 import tailwindcss from "../tailwindcss.css";
 import classNames from "classnames/index";
 
@@ -13,6 +13,11 @@ function button({
   full,
   onClick,
 }: Props<typeof button.props>) {
+  let dispatchEvent = useEvent("click", {
+    bubbles: true,
+    composed: true,
+  });
+
   return (
     <host shadowDom>
       <button
@@ -25,52 +30,80 @@ function button({
           "gap-1",
           "rounded",
           {
+            "shadow-md": !ghost && !disabled && !skeleton && kind != "link",
             "py-2": spacing == "default" && kind != "link",
             "py-1": spacing == "compact" && kind != "link",
             "px-4": kind != "link",
             "h-8": spacing == "default" && kind != "link",
             "h-6": spacing == "compact" && kind != "link",
             "bg-blue-700": kind == "primary",
-            "hover:bg-blue-700":
+            "hover:bg-blue-600":
+              !ghost && kind == "primary" && !disabled && !skeleton,
+            "active:bg-blue-500":
+              !ghost && kind == "primary" && !disabled && !skeleton,
+            "shadow-blue-600":
               !ghost && kind == "primary" && !disabled && !skeleton,
             "bg-amber-400": !ghost && kind == "warning",
             "hover:bg-yellow-400":
               !ghost && kind == "warning" && !disabled && !skeleton,
+            "active:bg-yellow-300":
+              !ghost && kind == "warning" && !disabled && !skeleton,
+            "shadow-amber-300":
+              !ghost && kind == "warning" && !disabled && !skeleton,
             "bg-red-500": !ghost && kind == "danger",
             "hover:bg-red-400":
               !ghost && kind == "danger" && !disabled && !skeleton,
+            "active:bg-red-300":
+              !ghost && kind == "danger" && !disabled && !skeleton,
+            "shadow-red-400":
+              !ghost && kind == "danger" && !disabled && !skeleton,
+            "hover:shadow-red-300":
+              !ghost && kind == "danger" && !disabled && !skeleton,
             "bg-transparent": ghost,
-            "hover:bg-gray-300/30":
+            "hover:bg-gray-300/10":
               ghost && kind != "link" && !skeleton && !disabled,
-            "hover:bg-yellow-400/30":
+            "hover:bg-yellow-400/20":
               ghost && kind == "warning" && !skeleton && !disabled,
-            "hover:bg-red-400/30":
+            "active:bg-yellow-400/30":
+              ghost && kind == "warning" && !skeleton && !disabled,
+            "hover:bg-red-400/20":
               ghost && kind == "danger" && !skeleton && !disabled,
-            "hover:bg-blue-600/30":
+            "active:bg-red-400/30":
+              ghost && kind == "danger" && !skeleton && !disabled,
+            "hover:bg-blue-700/10":
+              ghost && kind == "primary" && !skeleton && !disabled,
+            "active:bg-blue-700/20":
               ghost && kind == "primary" && !skeleton && !disabled,
             "w-full": full,
-            "w-24": loading || skeleton,
-            "bg-gray-300/30": disabled || skeleton,
-            "animate-pulse": skeleton,
-            "cursor-wait": loading,
+            "w-24": (loading || skeleton) && kind != "link",
+            "bg-gray-300/30": (disabled || skeleton) && kind != "link",
+            "animate-pulse": skeleton && kind != "link",
+            "cursor-wait": loading && kind != "link",
           }
         )}
-        onclick={onClick ? onClick : undefined}
+        onclick={onClick ? onClick : () => dispatchEvent}
         disabled={loading || disabled || skeleton}
       >
-        {!loading ? (
+        {!loading && kind != "link" ? (
           <slot
             name="before"
             class={classNames({
               hidden: skeleton || loading,
+              "text-white": !ghost && !disabled,
+              "text-blue-700": ghost && kind == "primary",
+              "text-amber-400": ghost && kind == "warning",
+              "text-red-500": ghost && kind == "danger",
+              "text-gray-400": disabled,
+              "text-gray-700": kind == "warning" && !ghost && !disabled,
             })}
           ></slot>
         ) : null}
         <p
           class={classNames("flex-1", "text-xs", "font-sans", {
             "text-white": !ghost,
-            "text-gray-500": ghost,
-            "text-gray-700": kind == "warning",
+            "text-gray-400": disabled,
+            "text-gray-500": ghost && kind == "link",
+            "text-gray-700": !ghost && kind == "warning",
             "text-blue-700":
               (ghost && kind == "primary") || (!ghost && kind == "link"),
             "text-amber-400": ghost && kind == "warning",
@@ -78,18 +111,18 @@ function button({
             "hover:underline": kind == "link",
             "hover:text-blue-600": !ghost && kind == "link",
             "hover:text-gray-400": ghost && kind == "link",
-            hidden: skeleton || loading,
+            hidden: (skeleton || loading) && kind != "link",
           })}
         >
           {name}
         </p>
-        {!loading ? (
+        {!loading && kind != "link" ? (
           <slot
             name="after"
             class={classNames("flex-1", { hidden: skeleton || loading })}
           ></slot>
         ) : null}
-        {loading && !skeleton ? (
+        {loading && !skeleton && kind != "link" ? (
           <svg
             aria-hidden="true"
             focusable="false"

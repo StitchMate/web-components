@@ -1,4 +1,4 @@
-import { c, Props, useState } from "atomico";
+import { c, Props, useState, useEvent } from "atomico";
 import tailwindcss from "../tailwindcss.css";
 import classNames from "classnames";
 
@@ -15,9 +15,16 @@ function textInput({
   readOnly,
   helperText,
   validityMessage,
+  full,
   iconPlacement,
 }: Props<typeof textInput.props>) {
+  let dispatchEvent = useEvent("change", {
+    bubbles: true,
+    composed: true,
+  });
+
   let [showPassword, setShowPassword] = useState(false);
+
   return (
     <host shadowDom>
       {labelText ? (
@@ -39,7 +46,7 @@ function textInput({
         <div
           class={classNames(
             "flex",
-            "w-full",
+            { "min-w-fit": !full, "w-full": full },
             "items-center",
             "h-8",
             { "bg-white": !disabled },
@@ -52,7 +59,14 @@ function textInput({
         >
           <slot
             name="before"
-            class="absolute flex items-center ml-2 w-6"
+            class={classNames(
+              "absolute",
+              "flex",
+              "items-center",
+              "ml-2",
+              "w-6",
+              { "text-gray-300": disabled }
+            )}
           ></slot>
           <input
             autocomplete={autocomplete ? autocomplete : ""}
@@ -89,13 +103,21 @@ function textInput({
               "rounded"
             )}
             placeholder={placeholder}
-            oninput={onChange ? onChange : () => {}}
+            oninput={onChange ? onChange : () => dispatchEvent()}
             value={value}
           />
           {!invalid ? (
             <slot
               name="after"
-              class="absolute flex items-center left-0 w-6"
+              class={classNames(
+                "absolute",
+                "flex",
+                "items-center",
+                "right-0",
+                "mr-2",
+                "w-6",
+                { "text-gray-300": disabled }
+              )}
             ></slot>
           ) : (
             <svg
@@ -121,8 +143,11 @@ function textInput({
             focusable="false"
             data-prefix="far"
             data-icon="eye"
-            onclick={() => setShowPassword(true)}
-            class="svg-inline--fa fa-eye w-4 text-gray-500 ml-2"
+            onclick={() => (!disabled ? setShowPassword(true) : null)}
+            class={classNames("w-4", "ml-2", {
+              "text-gray-500": !disabled,
+              "text-gray-300": disabled,
+            })}
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 576 512"
@@ -139,8 +164,11 @@ function textInput({
             focusable="false"
             data-prefix="far"
             data-icon="eye-slash"
-            onclick={() => setShowPassword(false)}
-            class="svg-inline--fa fa-eye-slash text-gray-500 w-4 ml-2"
+            onclick={() => (!disabled ? setShowPassword(false) : null)}
+            class={classNames("w-4", "ml-2", {
+              "text-gray-500": !disabled,
+              "text-gray-300": disabled,
+            })}
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 640 512"
@@ -203,6 +231,7 @@ textInput.props = {
   readOnly: Boolean,
   labelText: String,
   validityMessage: String,
+  full: Boolean,
 };
 
 textInput.styles = [tailwindcss];

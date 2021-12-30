@@ -26,6 +26,7 @@ export declare const TextInput: import("atomico/types/dom").Atom<Props<{
     readOnly: BooleanConstructor;
     labelText: StringConstructor;
     validityMessage: StringConstructor;
+    full: BooleanConstructor;
 }>, {
     new (): HTMLElement;
     prototype: HTMLElement;
