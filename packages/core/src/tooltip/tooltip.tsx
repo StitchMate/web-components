@@ -37,7 +37,7 @@ function tooltip({ placement }: Props<typeof tooltip.props>) {
         placement: placement as Placement,
       });
     }
-  });
+  }, [child1, child2]);
 
   useEffect(() => {
     if (child2.length > 0) {
