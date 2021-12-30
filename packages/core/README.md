@@ -50,8 +50,6 @@ button.props = {
   myProp: String,
 };
 
-console.log(tailwindcss);
-
 button.styles = [
   tailwindcss,
   css`
