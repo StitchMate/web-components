@@ -15,7 +15,15 @@ export declare const TextInput: import("atomico/types/dom").Atom<Props<{
     };
     placeholder: StringConstructor;
     onChange: FunctionConstructor;
-    value: StringConstructor;
+    value: {
+        type: StringConstructor;
+        event: {
+            type: string;
+            bubbles: boolean;
+            composed: boolean;
+            cancelable: boolean;
+        };
+    };
     helperText: StringConstructor;
     iconPlacement: StringConstructor;
     invalid: {

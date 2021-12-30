@@ -1,4 +1,4 @@
-import { c, Props, useState, useEvent } from "atomico";
+import { c, Props, useState, useProp, useRef } from "atomico";
 import tailwindcss from "../tailwindcss.css";
 import classNames from "classnames";
 
@@ -18,11 +18,8 @@ function textInput({
   full,
   iconPlacement,
 }: Props<typeof textInput.props>) {
-  let dispatchEvent = useEvent("change", {
-    bubbles: true,
-    composed: true,
-  });
-
+  let refInput = useRef();
+  let [, setValue] = useProp("value");
   let [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -69,6 +66,7 @@ function textInput({
             )}
           ></slot>
           <input
+            ref={refInput}
             autocomplete={autocomplete ? autocomplete : ""}
             autofocus={autoFocus}
             disabled={disabled}
@@ -103,7 +101,9 @@ function textInput({
               "rounded"
             )}
             placeholder={placeholder}
-            oninput={onChange ? onChange : () => dispatchEvent()}
+            oninput={
+              onChange ? onChange : () => setValue(refInput.current.value)
+            }
             value={value}
           />
           {!invalid ? (
@@ -220,7 +220,15 @@ textInput.props = {
   },
   placeholder: String,
   onChange: Function,
-  value: String,
+  value: {
+    type: String,
+    event: {
+      type: "change",
+      bubbles: true,
+      composed: true,
+      cancelable: true,
+    },
+  },
   helperText: String,
   iconPlacement: String,
   invalid: {
