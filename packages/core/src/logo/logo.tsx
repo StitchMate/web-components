@@ -4,7 +4,10 @@ import tailwindcss from "../tailwindcss.css";
 function logo() {
   return (
     <host shadowDom>
-      <a href="/" class="text-blue-500 dark:text-white text-xl font-semibold">
+      <a
+        href="/"
+        class="text-blue-500 dark:text-white md:text-xl text-3xl font-semibold"
+      >
         Seam.
       </a>
     </host>

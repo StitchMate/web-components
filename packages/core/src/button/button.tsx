@@ -38,9 +38,12 @@ function button({
             "py-2": spacing == "default" && kind != "link",
             "py-1": spacing == "compact" && kind != "link",
             "px-2": kind != "link",
-            "h-10": spacing == "loose" && kind != "link",
-            "h-8": spacing == "default" && kind != "link",
-            "h-6": spacing == "compact" && kind != "link",
+            "h-12": spacing == "loose" && kind != "link",
+            "md:h-10": spacing == "loose" && kind != "link",
+            "h-10": spacing == "default" && kind != "link",
+            "md:h-8": spacing == "default" && kind != "link",
+            "h-8": spacing == "compact" && kind != "link",
+            "md:h-6": spacing == "compact" && kind != "link",
             "bg-blue-500": kind == "primary",
             "hover:bg-blue-600":
               !ghost && kind == "primary" && !disabled && !skeleton,
@@ -119,7 +122,7 @@ function button({
           ></slot>
         ) : null}
         <p
-          class={classNames("flex-1", "text-sm", "font-sans", {
+          class={classNames("flex-1", "text-lg", "md:text-sm", "font-sans", {
             "text-white": !ghost,
             "text-gray-400": disabled,
             "text-gray-500": ghost && (kind == "link" || kind == "subtle"),

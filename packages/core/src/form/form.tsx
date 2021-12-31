@@ -17,11 +17,11 @@ function form({ onSubmit, hideCancel }: Props<typeof form.props>) {
   return (
     <host shadowDom>
       <form
-        class="flex flex-col gap-2"
+        class="flex flex-col gap-2 md:gap-2"
         onsubmit={onSubmit ? onSubmit : () => dispatchEvent()}
       >
         <slot />
-        <div class="pr-6 flex gap-2">
+        <div class="pr-6 flex gap-4 md:gap-2">
           <div class="grow">
             <slot ref={submitRef} name="actions-submit"></slot>
           </div>

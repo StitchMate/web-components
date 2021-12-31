@@ -21,6 +21,7 @@ function textInput({
 }: Props<typeof textInput.props>) {
   let refInput = useRef();
   let [, setValue] = useProp("value");
+  let [focused, setFocused] = useState(false);
   let [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -28,7 +29,8 @@ function textInput({
       {labelText ? (
         <label
           class={classNames(
-            "text-xs",
+            "text-md",
+            "md:text-xs",
             "font-light",
             "font-sans",
             "text-gray-500",
@@ -52,7 +54,8 @@ function textInput({
               "flex",
               { "min-w-fit": !full, "w-full": full },
               "items-center",
-              "h-8",
+              "h-10",
+              "md:h-8",
               { "bg-white": !disabled },
               { "bg-gray-100": disabled },
               "relative",
@@ -70,7 +73,9 @@ function textInput({
                 "items-center",
                 "ml-2",
                 "w-6",
-                { "text-gray-300": disabled }
+                { "text-gray-300": disabled },
+                { "text-blue-500": focused },
+                { "text-gray-400": !focused }
               )}
             ></slot>
             <input
@@ -103,12 +108,15 @@ function textInput({
                 "disabled:text-gray-300",
                 "disabled:bg-transparent",
                 "pr-2",
-                "text-xs",
+                "text-lg",
+                "md:text-xs",
                 "disabled:placeholder-gray-300",
                 "font-light",
                 "rounded"
               )}
               placeholder={placeholder}
+              onfocus={() => setFocused(true)}
+              onblur={() => setFocused(false)}
               oninput={
                 onChange ? onChange : () => setValue(refInput.current.value)
               }
@@ -124,7 +132,9 @@ function textInput({
                   "right-0",
                   "mr-2",
                   "w-6",
-                  { "text-gray-300": disabled }
+                  { "text-gray-300": disabled },
+                  { "text-blue-500": focused },
+                  { "text-gray-400": !focused }
                 )}
               ></slot>
             ) : (
@@ -168,7 +178,7 @@ function textInput({
             onclick={() =>
               !disabled && !skeleton ? setShowPassword(true) : null
             }
-            class={classNames("w-4", "ml-2", "h-8", {
+            class={classNames("w-4", "ml-2", "h-10", "md:h-8", {
               "text-gray-500": !disabled && !skeleton,
               "text-gray-300": disabled && !skeleton,
               "text-transparent": skeleton,
@@ -195,7 +205,7 @@ function textInput({
             onclick={() =>
               !disabled && !skeleton ? setShowPassword(false) : null
             }
-            class={classNames("w-4", "ml-2", "h-8", {
+            class={classNames("w-4", "ml-2", "h-10", "md-8", {
               "text-gray-500": !disabled && !skeleton,
               "text-gray-300": disabled && !skeleton,
               "text-transparent": skeleton,
