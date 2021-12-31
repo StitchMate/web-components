@@ -4,7 +4,7 @@ import tailwindcss from "../tailwindcss.css";
 function card({ hideTitle }: Props<typeof card.props>) {
   return (
     <host shadowDom>
-      <div class="border border-gray-300 rounded shadow-lg shadow-gray-400/50 flex flex-col max-w-full w-fit gap-2">
+      <div class="border border-gray-300 rounded shadow-md shadow-gray-700 flex flex-col max-w-full w-fit gap-2 bg-white">
         {!hideTitle ? (
           <div class="px-8 pt-4 flex flex-col gap-2">
             <slot name="title"></slot>

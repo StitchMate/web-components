@@ -1,5 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  style="
+    margin: 16px;
+    width: calc(100vw - 32px);
+    height: 100vh;
+    padding: 0px;
+    padding-bottom: 16px;
+  "
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,57 +20,87 @@
     />
     
     
-    <script async type="module" crossorigin src="/assets/index.ef9aa993.js"></script>
-    <link rel="modulepreload" href="/assets/vendor.3af74310.js">
+    <script async type="module" crossorigin src="/assets/index.124efe62.js"></script>
+    <link rel="modulepreload" href="/assets/vendor.0d86a2da.js">
     <link rel="stylesheet" href="/assets/index.2e02fce2.css">
   </head>
-  <body>
-    <h1>This is an example of how to use Tailwind with Atomico</h1>
-    <p>
-      For this example I have used
-      <a href="https://flowbite.com/docs/getting-started/introduction/"
-        >Flowbite</a
+  <body
+    style="
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      justify-content: center;
+      justify-items: center;
+      margin: 0px;
+      padding: 0px;
+      align-items: center;
+      background-color: rgb(59 130 246 / 1);
+    "
+  >
+    <seam-card>
+      <seam-card-title
+        slot="title"
+        name="Login"
+        helper-text="Log in to manage your account"
       >
-      components to demonstrate the use of Tailwind within the shadowDOM
-    </p>
-    <seam-card hide-title>
-      <!-- <p style="margin: 0" slot="title">Title goes here</p>
-      <p style="margin: 0; font-size: 12px" slot="title">Secondary Text</p> -->
-      <img
-        style="height: 300px"
-        slot="media"
-        src="https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc="
-      />
-      <article>
-        <p style="font-size: 14px; margin: 0">
-          Almost before we knew it, we had left the ground.
-        </p>
-      </article>
-      <seam-tooltip slot="actions-left" placement="auto">
-        <seam-button
-          slot="target"
-          name="Login"
-          kind="primary"
-          spacing="loose"
-          ghost
+      </seam-card-title>
+      <seam-form hide-cancel>
+        <seam-text-input
+          label-text="User/Email"
+          icon-placement="before"
+          placeholder="email@yourdomain.com"
         >
-        </seam-button>
-        <seam-tooltip-content slot="tooltip"
-          ><p>
-            really really really long text really really really long text really
-            really really long text really really really long text really really
-            really long text
-          </p></seam-tooltip-content
+          <seam-icon slot="before">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="envelope"
+              class="svg-inline--fa fa-envelope"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              width="256px"
+              height="256px"
+            >
+              <path
+                fill="currentColor"
+                d="M256 352c-16.53 0-33.06-5.422-47.16-16.41L0 173.2V400C0 426.5 21.49 448 48 448h416c26.51 0 48-21.49 48-48V173.2l-208.8 162.5C289.1 346.6 272.5 352 256 352zM16.29 145.3l212.2 165.1c16.19 12.6 38.87 12.6 55.06 0l212.2-165.1C505.1 137.3 512 125 512 112C512 85.49 490.5 64 464 64h-416C21.49 64 0 85.49 0 112C0 125 6.01 137.3 16.29 145.3z"
+              ></path>
+            </svg>
+          </seam-icon>
+        </seam-text-input>
+        <seam-text-input
+          label-text="Password"
+          kind="password"
+          icon-placement="before"
+          placeholder="password"
         >
-      </seam-tooltip>
-      <seam-button
-        slot="actions-left"
-        name="Cancel"
-        kind="subtle"
-        spacing="loose"
-        ghost
-      ></seam-button>
+          <seam-icon slot="before">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="key"
+              class="svg-inline--fa fa-key"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              height="256px"
+              width="256px"
+            >
+              <path
+                fill="currentColor"
+                d="M336 0c-97.2 0-176 78.8-176 176c0 14.71 2.004 28.93 5.406 42.59l-156 156C3.371 380.6 0 388.8 0 397.3V496C0 504.8 7.164 512 16 512l96 0c8.836 0 16-7.164 16-16v-48h48c8.836 0 16-7.164 16-16v-48h57.37c4.242 0 8.312-1.688 11.31-4.688l32.72-32.72C307.1 349.1 321.3 351.1 336 351.1c97.2 0 176-78.8 176-176S433.2 0 336 0zM376 176c-22.09 0-40-17.91-40-40S353.9 96 376 96S416 113.9 416 136S398.1 176 376 176z"
+              ></path>
+            </svg>
+          </seam-icon>
+        </seam-text-input>
+        <seam-divider transparent></seam-divider>
+        <seam-button slot="actions-submit" name="Sign In" full></seam-button>
+      </seam-form>
     </seam-card>
-    <div style="width: 500px; height: 600px; background-color: black"></div>
   </body>
 </html>
