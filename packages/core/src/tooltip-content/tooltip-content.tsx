@@ -26,16 +26,10 @@ function tooltipContent({
           "min-w-fit",
           "text-xs",
           {
-            "ml-2":
-              placementMajor == "right" ||
-              placementMajor == "top" ||
-              placementMajor == "bottom",
+            "ml-2": placementMajor == "right",
             "mt-2": placementMajor == "bottom",
             "mb-2": placementMajor == "top",
-            "mr-2":
-              placementMajor == "left" ||
-              placementMajor == "top" ||
-              placementMajor == "bottom",
+            "mr-2": placementMajor == "left",
           }
         )}
         data-popper-placement={dataPopperPlacement}

@@ -24,9 +24,9 @@ function tooltip({ placement }: Props<typeof tooltip.props>) {
       let flipMod = flip;
       flipMod.options = {
         allowedAutoPlacements: [
+          "top-start",
           "top",
           "bottom",
-          "top-start",
           "top-end",
           "bottom-start",
           "bottom-end",
@@ -51,7 +51,7 @@ function tooltip({ placement }: Props<typeof tooltip.props>) {
   return (
     <host shadowDom>
       <slot
-        class="inline-block"
+        class="inline-block w-full"
         name="target"
         ref={targetRef}
         onmouseenter={() => setVisible(true)}

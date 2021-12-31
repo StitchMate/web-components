@@ -18,6 +18,10 @@ function button({
     composed: true,
   });
 
+  if (kind == "subtle" && !ghost) {
+    kind = "primary";
+  }
+
   return (
     <host shadowDom>
       <button
@@ -33,7 +37,7 @@ function button({
             "shadow-md": !ghost && !disabled && !skeleton && kind != "link",
             "py-2": spacing == "default" && kind != "link",
             "py-1": spacing == "compact" && kind != "link",
-            "px-4": kind != "link",
+            "px-2": kind != "link",
             "h-10": spacing == "loose" && kind != "link",
             "h-8": spacing == "default" && kind != "link",
             "h-6": spacing == "compact" && kind != "link",
@@ -61,8 +65,18 @@ function button({
             "hover:shadow-red-300":
               !ghost && kind == "danger" && !disabled && !skeleton,
             "bg-transparent": ghost,
-            "hover:bg-gray-300/10":
-              ghost && kind != "link" && !skeleton && !disabled,
+            "active:bg-gray-200":
+              ghost &&
+              kind != "link" &&
+              !skeleton &&
+              !disabled &&
+              kind == "subtle",
+            "hover:bg-gray-300":
+              ghost &&
+              kind != "link" &&
+              !skeleton &&
+              !disabled &&
+              kind == "subtle",
             "hover:bg-yellow-400/20":
               ghost && kind == "warning" && !skeleton && !disabled,
             "active:bg-yellow-400/30":
@@ -94,16 +108,17 @@ function button({
               "text-blue-500": ghost && kind == "primary",
               "text-amber-400": ghost && kind == "warning",
               "text-red-500": ghost && kind == "danger",
+              "text-gray-500": ghost && kind == "subtle",
               "text-gray-400": disabled,
               "text-gray-700": kind == "warning" && !ghost && !disabled,
             })}
           ></slot>
         ) : null}
         <p
-          class={classNames("flex-1", "text-xs", "font-sans", {
+          class={classNames("flex-1", "text-sm", "font-sans", {
             "text-white": !ghost,
             "text-gray-400": disabled,
-            "text-gray-500": ghost && kind == "link",
+            "text-gray-500": ghost && (kind == "link" || kind == "subtle"),
             "text-gray-700": !ghost && kind == "warning",
             "text-blue-500":
               (ghost && kind == "primary") || (!ghost && kind == "link"),
