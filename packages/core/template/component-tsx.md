@@ -8,10 +8,10 @@
 ## component
 
 ```tsx {%name|kebabCase%}/{%name|kebabCase%}.tsx
-import { c, css } from "atomico";
+import { c } from "atomico";
 import tailwindcss from "../tailwindcss.css";
 
-const {%name|camelCase%} = () => {
+function {%name|camelCase%}() {
   return (
     <host shadowDom>
       <slot></slot>

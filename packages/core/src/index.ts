@@ -8,3 +8,6 @@ import "./avatar/avatar";
 import "./icon/icon";
 import "./divider/divider";
 import "./form/form";
+import "./ui-shell/ui-shell";
+import "./navbar/navbar";
+import "./logo/logo";

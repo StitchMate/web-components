@@ -87,7 +87,11 @@ function button({
               ghost && kind == "danger" && !skeleton && !disabled,
             "hover:bg-blue-500/20":
               ghost && kind == "primary" && !skeleton && !disabled,
+            "dark:hover:bg-white/20":
+              ghost && kind == "primary" && !skeleton && !disabled,
             "active:bg-blue-500/30":
+              ghost && kind == "primary" && !skeleton && !disabled,
+            "dark:active:bg-white/30":
               ghost && kind == "primary" && !skeleton && !disabled,
             "w-full": full,
             "w-24": (loading || skeleton) && kind != "link",
@@ -121,6 +125,8 @@ function button({
             "text-gray-500": ghost && (kind == "link" || kind == "subtle"),
             "text-gray-700": !ghost && kind == "warning",
             "text-blue-500":
+              (ghost && kind == "primary") || (!ghost && kind == "link"),
+            "dark:text-white":
               (ghost && kind == "primary") || (!ghost && kind == "link"),
             "text-amber-400": ghost && kind == "warning",
             "text-red-500": ghost && kind == "danger",
