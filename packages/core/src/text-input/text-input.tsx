@@ -57,6 +57,7 @@ function textInput({
               { "bg-gray-100": disabled },
               "relative",
               { border: !disabled },
+              { "border-gray-300": !invalid },
               { "border-red-500": invalid },
               "rounded"
             )}
@@ -89,10 +90,10 @@ function textInput({
                 "leading-tight",
                 "focus:outline-none",
                 {
-                  "pl-10": iconPlacement == "before",
+                  "pl-8": iconPlacement == "before",
                   "pr-2": iconPlacement == "before",
                   "pr-4": !iconPlacement,
-                  "pr-10": iconPlacement == "after",
+                  "pr-8": iconPlacement == "after",
                   "pl-2": iconPlacement == "after",
                   "pl-4": !iconPlacement,
                   "cursor-not-allowed": readOnly,

@@ -206,6 +206,7 @@ button.props = {
     value: false,
   },
   onClick: Function,
+  formId: String,
 };
 
 button.styles = [tailwindcss];

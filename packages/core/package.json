@@ -21,6 +21,7 @@
     "@atomico/custom-elements-manifest": "^0.1.0",
     "@atomico/exports": "^0.22.1",
     "@atomico/hooks": "^3.24.0",
+    "@atomico/magic-form": "^0.5.1",
     "@atomico/scaffold": "^0.2.0",
     "@esm-bundle/chai": "^4.3.4-fix.0",
     "@popperjs/core": "^2.11.0",
@@ -28,6 +29,7 @@
     "@uppercod/vite-meta-url-load-css": "^1.2.0",
     "@web/test-runner": "^0.13.23",
     "classnames": "^2.3.1",
+    "nanoid": "^3.1.30",
     "tailwindcss": "^3.0.7",
     "vite": "latest",
     "vite-web-test-runner-plugin": "^0.1.0"
