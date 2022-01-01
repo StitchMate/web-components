@@ -5,19 +5,21 @@ function navbar() {
   return (
     <host shadowDom>
       <div class="flex items-center p-4 gap-2">
-        <slot name="before"></slot>
-        <div class="flex-1">
+        <div class="flex gap-2 items-center">
+          <slot name="before"></slot>
+        </div>
+        <div class="flex-1 gap-2">
           <slot class="w-full"></slot>
         </div>
-        <slot name="after"></slot>
+        <div class="flex gap-2 items-center">
+          <slot name="after"></slot>
+        </div>
       </div>
     </host>
   );
 }
 
-navbar.props = {
-  myProp: String,
-};
+navbar.props = {};
 
 navbar.styles = [tailwindcss];
 

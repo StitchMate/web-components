@@ -11,3 +11,4 @@ import "./form/form";
 import "./ui-shell/ui-shell";
 import "./navbar/navbar";
 import "./logo/logo";
+import "./footer/footer";

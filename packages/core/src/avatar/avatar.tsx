@@ -1,4 +1,4 @@
-import { c, css, Props } from "atomico";
+import { c, Props } from "atomico";
 import tailwindcss from "../tailwindcss.css";
 
 function avatar({ src }: Props<typeof avatar.props>) {

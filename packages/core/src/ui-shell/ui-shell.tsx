@@ -4,11 +4,12 @@ import tailwindcss from "../tailwindcss.css";
 function uiShell() {
   return (
     <host shadowDom>
-      <div class="flex flex-col w-full h-full dark:bg-blue-500 bg-white">
+      <div class="flex flex-col min-h-full w-full dark:bg-blue-500 bg-white">
         <slot name="navbar"></slot>
         <div class="flex flex-col items-center justify-center grow m-4">
           <slot></slot>
         </div>
+        <slot name="footer"></slot>
       </div>
     </host>
   );

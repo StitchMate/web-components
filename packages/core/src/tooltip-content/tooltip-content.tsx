@@ -1,4 +1,4 @@
-import { c, css, Props, useRef, useEffect } from "atomico";
+import { c, Props, useRef } from "atomico";
 import classNames from "classnames";
 import tailwindcss from "../tailwindcss.css";
 

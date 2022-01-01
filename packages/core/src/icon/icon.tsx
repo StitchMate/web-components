@@ -1,4 +1,4 @@
-import { c, css, Props, useEffect, useState, useRef } from "atomico";
+import { c, Props, useEffect, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import classNames from "classnames";
 import tailwindcss from "../tailwindcss.css";
@@ -16,13 +16,22 @@ function icon({ size }: Props<typeof icon.props>) {
 
   return (
     <host shadowDom>
-      <slot ref={iconRef} class={classNames("w-4", "flex")}></slot>
+      <slot
+        ref={iconRef}
+        class={classNames(
+          { "w-4": size == "default", "w-8": size == "large" },
+          "flex"
+        )}
+      ></slot>
     </host>
   );
 }
 
 icon.props = {
-  size: String,
+  size: {
+    type: String,
+    value: "default",
+  },
 };
 
 icon.styles = [tailwindcss];

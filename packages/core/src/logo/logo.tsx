@@ -1,20 +1,25 @@
-import { c } from "atomico";
+import { c, Props } from "atomico";
 import tailwindcss from "../tailwindcss.css";
 
-function logo() {
+function logo({ short }: Props<typeof logo.props>) {
   return (
     <host shadowDom>
       <a
         href="/"
         class="text-blue-500 dark:text-white md:text-xl text-3xl font-semibold"
       >
-        Seam.
+        {!short ? "Seam." : "S."}
       </a>
     </host>
   );
 }
 
-logo.props = {};
+logo.props = {
+  short: {
+    type: Boolean,
+    value: false,
+  },
+};
 
 logo.styles = [tailwindcss];
 
