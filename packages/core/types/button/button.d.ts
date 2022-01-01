@@ -39,6 +39,7 @@ export declare const Button: import("atomico/types/dom").Atom<Props<{
         value: boolean;
     };
     onClick: FunctionConstructor;
+    formId: StringConstructor;
 }>, {
     new (): HTMLElement;
     prototype: HTMLElement;

@@ -1,0 +1,1 @@
+import{useLayoutEffect as f,useState as L}from"atomico";import{useRef as i}from"atomico";function o(t){let e=i();return e.current=t,e}function E(t,e,r,u){let s=o(r);f(()=>{let{current:n}=t;if(!(!n||!r))return a(n,e,c=>s.current(c),u)},[t,t?.current,e,!!r])}function a(t,e,r,u){return t.addEventListener(e,r,u),()=>t.removeEventListener(e,r)}export{E as a,a as b};

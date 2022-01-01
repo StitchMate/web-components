@@ -2,7 +2,7 @@ import { c, Props } from "atomico";
 import classNames from "classnames";
 import tailwindcss from "../tailwindcss.css";
 
-const divider = ({ transparent }: Props<typeof divider.props>) => {
+function divider({ transparent }: Props<typeof divider.props>) {
   return (
     <host shadowDom>
       <hr
@@ -13,7 +13,7 @@ const divider = ({ transparent }: Props<typeof divider.props>) => {
       />
     </host>
   );
-};
+}
 
 divider.props = {
   transparent: Boolean,

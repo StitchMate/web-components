@@ -10,7 +10,7 @@ function icon({ size }: Props<typeof icon.props>) {
 
   useEffect(() => {
     if (iconSlot && iconSlot.length > 0) {
-      (iconSlot[0] as SVGElement).nextElementSibling.removeAttribute("style");
+      (iconSlot[0] as SVGElement).nextElementSibling?.removeAttribute("style");
     }
   });
 

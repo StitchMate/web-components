@@ -4,6 +4,7 @@
     "src/**/*",
     "site"
   ],
+  "repository": "git@github.com:seam-dev/web-components.git",
   "version": "0.0.1",
   "scripts": {
     "start": "vite",
@@ -45,7 +46,17 @@
     "./button": "./dist/button/button.js",
     "./text-input": "./dist/text-input/text-input.js",
     "./tooltip": "./dist/tooltip/tooltip.js",
-    "./tooltip-content": "./dist/tooltip-content/tooltip-content.js"
+    "./tooltip-content": "./dist/tooltip-content/tooltip-content.js",
+    "./icon": "./dist/icon/icon.js",
+    "./logo": "./dist/logo/logo.js",
+    "./navbar": "./dist/navbar/navbar.js",
+    "./ui-shell": "./dist/ui-shell/ui-shell.js",
+    "./avatar": "./dist/avatar/avatar.js",
+    "./card-title": "./dist/card-title/card-title.js",
+    "./card": "./dist/card/card.js",
+    "./divider": "./dist/divider/divider.js",
+    "./footer": "./dist/footer/footer.js",
+    "./form": "./dist/form/form.js"
   },
   "types": "types/index.d.ts",
   "typesVersions": {
@@ -67,6 +78,36 @@
       ],
       "tooltip-content": [
         "./types/tooltip-content/tooltip-content.d.ts"
+      ],
+      "card": [
+        "./types/card/card.d.ts"
+      ],
+      "card-title": [
+        "./types/card-title/card-title.d.ts"
+      ],
+      "avatar": [
+        "./types/avatar/avatar.d.ts"
+      ],
+      "icon": [
+        "./types/icon/icon.d.ts"
+      ],
+      "divider": [
+        "./types/divider/divider.d.ts"
+      ],
+      "form": [
+        "./types/form/form.d.ts"
+      ],
+      "ui-shell": [
+        "./types/ui-shell/ui-shell.d.ts"
+      ],
+      "navbar": [
+        "./types/navbar/navbar.d.ts"
+      ],
+      "logo": [
+        "./types/logo/logo.d.ts"
+      ],
+      "footer": [
+        "./types/footer/footer.d.ts"
       ]
     }
   }

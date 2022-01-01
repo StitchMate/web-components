@@ -1,0 +1,1 @@
+import{b as r}from"./chunk-FAHS3CX7.js";import{useState as c,useEffect as u,Mark as d}from"atomico";function l(s){let[n,o]=c([]);return u(()=>{let{current:e}=s;if(!e)return;let t=()=>o(e.assignedNodes().filter(i=>!(i instanceof d)));return t(),r(e,"slotchange",t)},[]),n}export{l as a};
