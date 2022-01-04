@@ -12,7 +12,7 @@ function icon({ size }: Props<typeof icon.props>) {
     if (iconSlot && iconSlot.length > 0) {
       (iconSlot[0] as SVGElement).nextElementSibling?.removeAttribute("style");
     }
-  });
+  }, [iconRef, iconSlot]);
 
   return (
     <host shadowDom>

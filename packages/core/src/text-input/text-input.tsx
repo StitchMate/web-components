@@ -205,7 +205,7 @@ function textInput({
             onclick={() =>
               !disabled && !skeleton ? setShowPassword(false) : null
             }
-            class={classNames("w-4", "ml-2", "h-10", "md-8", {
+            class={classNames("w-4", "ml-2", "h-10", "md:h-8", {
               "text-gray-500": !disabled && !skeleton,
               "text-gray-300": disabled && !skeleton,
               "text-transparent": skeleton,

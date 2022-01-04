@@ -33,6 +33,7 @@ function button({
           "justify-items-center",
           "gap-1",
           "rounded",
+          "whitespace-nowrap",
           {
             "shadow-md": !ghost && !disabled && !skeleton && kind != "link",
             "py-2": spacing == "default" && kind != "link",
