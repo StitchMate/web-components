@@ -13,11 +13,6 @@ function button({
   full,
   onClick,
 }: Props<typeof button.props>) {
-  let dispatchEvent = useEvent("click", {
-    bubbles: true,
-    composed: true,
-  });
-
   if (kind == "subtle" && !ghost) {
     kind = "primary";
   }
@@ -104,7 +99,7 @@ function button({
             "cursor-wait": loading && kind != "link",
           }
         )}
-        onclick={onClick ? onClick : () => dispatchEvent}
+        onclick={onClick ? onClick : () => {}}
         disabled={loading || disabled || skeleton}
       >
         {!loading && kind != "link" ? (
