@@ -1,16 +1,40 @@
-import { c, Props } from "atomico";
+import { useSlot } from "@atomico/hooks/use-slot";
+import { c, Props, useRef, useEffect } from "atomico";
+import classNames from "classnames";
 import tailwindcss from "../tailwindcss.css";
 
-function card({ hideTitle }: Props<typeof card.props>) {
+function card({}: Props<typeof card.props>) {
+  let titleRef = useRef();
+  let titleSlot = useSlot(titleRef);
+
   return (
     <host shadowDom>
-      <div class="border border-gray-300 rounded shadow-md dark:shadow-gray-700 shadow-gray-400 flex flex-col max-w-full w-fit gap-4 md:gap-2 bg-white">
-        {!hideTitle ? (
-          <div class="px-8 md:px-6 pt-4 flex flex-col gap-2">
-            <slot name="title"></slot>
-          </div>
-        ) : null}
-        <slot name="media"></slot>
+      <div class="rounded shadow-md dark:shadow-gray-700 shadow-gray-400 flex flex-col max-w-full w-fit gap-4 md:gap-2 bg-white">
+        <div
+          class={classNames(
+            "px-8",
+            "md:px-6",
+            "pt-4",
+            "flex",
+            "flex-col",
+            "gap-2",
+            { hidden: titleSlot.length == 0 }
+          )}
+        >
+          <slot ref={titleRef} name="title"></slot>
+        </div>
+        <div
+          class={classNames(
+            "flex",
+            "items-center",
+            "justify-center",
+            "bg-black",
+            "rounded-b",
+            { "rounded-t": titleSlot.length == 0 }
+          )}
+        >
+          <slot name="media"></slot>
+        </div>
         <div class="px-8 md:px-6 pt-2 flex flex-col gap-2">
           <slot></slot>
         </div>
@@ -29,12 +53,7 @@ function card({ hideTitle }: Props<typeof card.props>) {
   );
 }
 
-card.props = {
-  hideTitle: {
-    type: Boolean,
-    value: false,
-  },
-};
+card.props = {};
 
 card.styles = [tailwindcss];
 
