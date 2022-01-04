@@ -1,6 +1,7 @@
 import { c, Props, useState, useProp, useRef } from "atomico";
 import tailwindcss from "../tailwindcss.css";
 import classNames from "classnames";
+import { useSlot } from "@atomico/hooks/use-slot";
 
 function textInput({
   autocomplete,
@@ -17,9 +18,12 @@ function textInput({
   helperText,
   validityMessage,
   full,
-  iconPlacement,
 }: Props<typeof textInput.props>) {
+  let leftIconRef = useRef();
+  let rightIconRef = useRef();
   let refInput = useRef();
+  let leftIcon = useSlot(leftIconRef);
+  let rightIcon = useSlot(rightIconRef);
   let [, setValue] = useProp("value");
   let [focused, setFocused] = useState(false);
   let [showPassword, setShowPassword] = useState(false);
@@ -67,6 +71,7 @@ function textInput({
           >
             <slot
               name="before"
+              ref={leftIconRef}
               class={classNames(
                 "absolute",
                 "flex",
@@ -95,12 +100,12 @@ function textInput({
                 "leading-tight",
                 "focus:outline-none",
                 {
-                  "pl-8": iconPlacement == "before",
-                  "pr-2": iconPlacement == "before",
-                  "pr-4": !iconPlacement,
-                  "pr-8": iconPlacement == "after",
-                  "pl-2": iconPlacement == "after",
-                  "pl-4": !iconPlacement,
+                  "pl-8": leftIcon.length > 0,
+                  "pr-2": leftIcon.length > 0,
+                  "pr-4": leftIcon.length == 0 && rightIcon.length == 0,
+                  "pr-8": rightIcon.length > 0,
+                  "pl-2": rightIcon.length > 0,
+                  "pl-4": leftIcon.length == 0 && rightIcon.length == 0,
                   "cursor-not-allowed": readOnly,
                   "focus:ring-blue-300": !readOnly,
                   "focus:ring": !readOnly,
@@ -125,6 +130,7 @@ function textInput({
             {!invalid ? (
               <slot
                 name="after"
+                ref={rightIconRef}
                 class={classNames(
                   "absolute",
                   "flex",
@@ -296,7 +302,6 @@ textInput.props = {
     value: false,
   },
   helperText: String,
-  iconPlacement: String,
   invalid: {
     type: Boolean,
     reflect: true,
