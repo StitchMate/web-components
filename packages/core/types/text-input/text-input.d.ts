@@ -29,7 +29,6 @@ export declare const TextInput: import("atomico/types/dom").Atom<Props<{
         value: boolean;
     };
     helperText: StringConstructor;
-    iconPlacement: StringConstructor;
     invalid: {
         type: BooleanConstructor;
         reflect: boolean;

@@ -1,1 +1,1 @@
-import{a}from"../chunk-3QLEMPRO.js";import"../chunk-DTEUM6X2.js";export{a as UiShell};
+import{a}from"../chunk-DY72RTOW.js";import"../chunk-AWTI7J7X.js";export{a as UiShell};

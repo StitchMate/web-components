@@ -22,16 +22,16 @@ function tooltip({ placement }: Props<typeof tooltip.props>) {
       (child2[0] as HTMLElement).style.zIndex = "2";
       (child1[0] as HTMLElement).setAttribute("aria-describedby", "tooltip");
       let flipMod = flip;
-      flipMod.options = {
-        allowedAutoPlacements: [
-          "top-start",
-          "top",
-          "bottom",
-          "top-end",
-          "bottom-start",
-          "bottom-end",
-        ],
-      };
+      let targetWidth = (child1[0] as HTMLElement).offsetWidth;
+      let targetHeight = (child1[0] as HTMLElement).offsetHeight;
+      (child2[0] as HTMLElement).setAttribute(
+        "target-width",
+        targetWidth.toString()
+      );
+      (child2[0] as HTMLElement).setAttribute(
+        "target-height",
+        targetHeight.toString()
+      );
       createPopper(child1[0] as HTMLElement, child2[0] as HTMLElement, {
         modifiers: [flipMod, preventOverflow],
         placement: placement as Placement,
@@ -45,6 +45,7 @@ function tooltip({ placement }: Props<typeof tooltip.props>) {
         "aria-hidden",
         (!visible).toString()
       );
+      (child2[0] as HTMLElement).setAttribute("visible", visible.toString());
     }
   }, [visible]);
 

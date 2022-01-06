@@ -1,1 +1,1 @@
-import{a}from"../chunk-6CI2QMNU.js";import"../chunk-DTEUM6X2.js";export{a as Navbar};
+import{a}from"../chunk-PA25C25Y.js";import"../chunk-AWTI7J7X.js";export{a as Navbar};

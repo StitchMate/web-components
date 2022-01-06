@@ -91,7 +91,23 @@
             </seam-icon>
           </seam-text-input>
           <seam-divider transparent></seam-divider>
-          <seam-button slot="actions-submit" name="Sign In" full></seam-button>
+          <seam-tooltip slot="actions-submit" placement="auto">
+            <seam-button slot="target" name="Sign In" full></seam-button>
+            <seam-tooltip-content slot="tooltip">
+              <p>
+                This is a really really really really really really long
+                text.<br />
+                This is a really really really really really really long
+                text.<br />
+                This is a really really really really really really long
+                text.<br />
+                This is a really really really really really really long
+                text.<br />
+                This is a really really really really really really long
+                text.<br />
+              </p>
+            </seam-tooltip-content>
+          </seam-tooltip>
         </seam-form>
       </seam-card>
       <seam-footer slot="footer">
