@@ -1,1 +1,1 @@
-import{a}from"../chunk-S6ARG3YG.js";import"../chunk-AWTI7J7X.js";export{a as Logo};
+import{a}from"../chunk-BXLG7HQH.js";import"../chunk-LJP562E3.js";export{a as Logo};

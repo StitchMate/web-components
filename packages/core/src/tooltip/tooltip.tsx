@@ -21,19 +21,8 @@ function tooltip({ placement }: Props<typeof tooltip.props>) {
       (child2[0] as HTMLElement).setAttribute("role", "tooltip");
       (child2[0] as HTMLElement).style.zIndex = "2";
       (child1[0] as HTMLElement).setAttribute("aria-describedby", "tooltip");
-      let flipMod = flip;
-      let targetWidth = (child1[0] as HTMLElement).offsetWidth;
-      let targetHeight = (child1[0] as HTMLElement).offsetHeight;
-      (child2[0] as HTMLElement).setAttribute(
-        "target-width",
-        targetWidth.toString()
-      );
-      (child2[0] as HTMLElement).setAttribute(
-        "target-height",
-        targetHeight.toString()
-      );
       createPopper(child1[0] as HTMLElement, child2[0] as HTMLElement, {
-        modifiers: [flipMod, preventOverflow],
+        modifiers: [flip, preventOverflow],
         placement: placement as Placement,
       });
     }
@@ -45,14 +34,15 @@ function tooltip({ placement }: Props<typeof tooltip.props>) {
         "aria-hidden",
         (!visible).toString()
       );
-      (child2[0] as HTMLElement).setAttribute("visible", visible.toString());
+      visible
+        ? (child2[0] as HTMLElement).setAttribute("data-show", "")
+        : (child2[0] as HTMLElement).removeAttribute("data-show");
     }
   }, [visible]);
 
   return (
     <host shadowDom>
       <slot
-        class="inline-block w-full"
         name="target"
         ref={targetRef}
         onmouseenter={() => setVisible(true)}
@@ -63,7 +53,7 @@ function tooltip({ placement }: Props<typeof tooltip.props>) {
       <slot
         name="tooltip"
         class={classNames({
-          hidden: !visible,
+          invisible: !visible,
         })}
         ref={tooltipRef}
       ></slot>
