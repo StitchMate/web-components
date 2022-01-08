@@ -5,7 +5,7 @@
     "site"
   ],
   "repository": "git@github.com:seam-dev/web-components.git",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "scripts": {
     "start": "vite",
     "build": "vite build --outDir docs --base /",
@@ -16,6 +16,7 @@
     "create-component": "scaff template/component-tsx src"
   },
   "dependencies": {
+    "@floating-ui/dom": "^0.1.10",
     "atomico": "^1.34.5"
   },
   "devDependencies": {
@@ -25,7 +26,6 @@
     "@atomico/magic-form": "^0.5.1",
     "@atomico/scaffold": "^0.2.0",
     "@esm-bundle/chai": "^4.3.4-fix.0",
-    "@popperjs/core": "^2.11.0",
     "@uppercod/vite-meta-url": "^1.5.0",
     "@uppercod/vite-meta-url-load-css": "^1.2.0",
     "@web/test-runner": "^0.13.23",

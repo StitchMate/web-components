@@ -21,8 +21,8 @@
       referrerpolicy="no-referrer"
     />
     
-    <script async type="module" crossorigin src="/assets/index.36fea396.js"></script>
-    <link rel="modulepreload" href="/assets/vendor.0d86a2da.js">
+    <script async type="module" crossorigin src="/assets/index.af124133.js"></script>
+    <link rel="modulepreload" href="/assets/vendor.5807da11.js">
     <link rel="stylesheet" href="/assets/index.6a1d85ac.css">
   </head>
   <body>
@@ -94,17 +94,39 @@
             </seam-icon>
           </seam-text-input>
           <seam-divider transparent></seam-divider>
-          <seam-button slot="actions-submit" name="Sign In" full></seam-button>
+          <seam-tooltip slot="actions-submit" placement="bottom">
+            <seam-button slot="target" name="Sign In" full></seam-button>
+            <seam-tooltip-content slot="tooltip">
+              <p>
+                This is a really really really really really really long
+                text.<br />
+                This is a really really really really really really long
+                text.<br />
+                This is a really really really really really really long
+                text.<br />
+                This is a really really really really really really long
+                text.<br />
+                This is a really really really really really really long
+                text.<br />
+              </p>
+            </seam-tooltip-content>
+          </seam-tooltip>
         </seam-form>
       </seam-card>
       <seam-footer slot="footer">
         <seam-logo slot="before" short></seam-logo>
         <seam-button slot="before" name="Terms of Service" ghost></seam-button>
         <seam-button slot="before" name="Privacy" ghost></seam-button>
-        <p slot="before" style="color: white; font-size: 0.875rem">
+        <p
+          slot="before"
+          style="color: white; font-size: 0.875rem; white-space: nowrap"
+        >
           © 2022 Seam
         </p>
-        <p slot="after" style="color: white; font-size: 0.875rem">
+        <p
+          slot="after"
+          style="color: white; font-size: 0.875rem; white-space: nowrap"
+        >
           Powered By:
         </p>
         <a slot="after" href="https://atomicojs.github.io/">

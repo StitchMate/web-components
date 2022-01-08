@@ -1,1 +1,1 @@
-import{a}from"../chunk-RJ2M5C5U.js";import"../chunk-LJP562E3.js";export{a as Avatar};
+import{a}from"../chunk-WHLFZ6GQ.js";import"../chunk-5XWOEVYA.js";export{a as Avatar};

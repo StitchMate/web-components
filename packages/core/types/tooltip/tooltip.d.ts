@@ -4,6 +4,14 @@ export declare const Tooltip: import("atomico/types/dom").Atom<Props<{
         type: StringConstructor;
         value: string;
     };
+    inline: {
+        type: BooleanConstructor;
+        value: boolean;
+    };
+    useClick: {
+        type: BooleanConstructor;
+        value: boolean;
+    };
 }>, {
     new (): HTMLElement;
     prototype: HTMLElement;

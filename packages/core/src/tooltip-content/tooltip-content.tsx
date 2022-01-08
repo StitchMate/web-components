@@ -1,4 +1,4 @@
-import { c, Props, useEffect, useRef } from "atomico";
+import { c, Props, useEffect, useRef, useUpdate } from "atomico";
 import classNames from "classnames";
 import tailwindcss from "../tailwindcss.css";
 
@@ -6,16 +6,15 @@ function tooltipContent({
   dataPopperPlacement,
 }: Props<typeof tooltipContent.props>) {
   let contentRef = useRef();
-  let placementMajor = dataPopperPlacement
-    ? dataPopperPlacement.split("-")[0]
-    : "";
+
   return (
     <host shadowDom>
       <div
         id="tooltip"
         ref={contentRef}
         class={classNames(
-          "inline-block",
+          "fixed",
+          "z-10",
           "bg-white",
           "rounded",
           "p-2",
@@ -26,13 +25,7 @@ function tooltipContent({
           "min-w-fit",
           "text-md",
           "md:text-xs",
-          "max-w-xs",
-          {
-            "ml-2": placementMajor == "right",
-            "mt-2": placementMajor == "bottom",
-            "mb-2": placementMajor == "top",
-            "mr-2": placementMajor == "left",
-          }
+          "max-w-xs"
         )}
         data-popper-placement={dataPopperPlacement}
       >
