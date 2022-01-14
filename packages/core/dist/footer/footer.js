@@ -1,1 +1,1 @@
-import{a}from"../chunk-5YSV5LV7.js";import"../chunk-BGOGYEAG.js";import"../chunk-5XWOEVYA.js";export{a as Footer};
+import{a}from"../chunk-WFSC2DRW.js";import"../chunk-LMTLJAGR.js";import"../chunk-7APFZWDL.js";export{a as Footer};

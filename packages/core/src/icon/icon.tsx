@@ -1,7 +1,8 @@
-import { c, Props, useEffect, useRef } from "atomico";
+import { c, Props, useEffect, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import classNames from "classnames";
 import tailwindcss from "../tailwindcss.css";
+import icomoon from "../style.css";
 
 function icon({ size }: Props<typeof icon.props>) {
   let iconRef = useRef();
@@ -34,7 +35,7 @@ icon.props = {
   },
 };
 
-icon.styles = [tailwindcss];
+icon.styles = [tailwindcss, icomoon];
 
 export const Icon = c(icon);
 

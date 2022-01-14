@@ -18,6 +18,7 @@ const config = {
     pluginMetaUrl({
       css: loadCss(),
       md: true,
+      woff: true
     }),
   ],
 };

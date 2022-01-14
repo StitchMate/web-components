@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./src/page.css" />
+    <link rel="stylesheet" href="./src/s.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -29,87 +30,59 @@
         <seam-button slot="after" name="Login" ghost></seam-button>
         <seam-button slot="after" name="Register" ghost></seam-button>
       </seam-navbar>
-      <seam-card>
-        <seam-card-title
-          slot="title"
-          name="Login"
-          helper-text="Log in to manage your account"
-        >
-        </seam-card-title>
-        <seam-form hide-cancel>
-          <seam-text-input
-            label-text="User/Email"
-            icon-placement="before"
-            placeholder="email@yourdomain.com"
-          >
-            <seam-icon slot="before">
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                data-prefix="fas"
-                data-icon="envelope"
-                class="svg-inline--fa fa-envelope"
-                role="img"
-                style="display: none"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                width="256px"
-                height="256px"
-              >
-                <path
-                  fill="currentColor"
-                  d="M256 352c-16.53 0-33.06-5.422-47.16-16.41L0 173.2V400C0 426.5 21.49 448 48 448h416c26.51 0 48-21.49 48-48V173.2l-208.8 162.5C289.1 346.6 272.5 352 256 352zM16.29 145.3l212.2 165.1c16.19 12.6 38.87 12.6 55.06 0l212.2-165.1C505.1 137.3 512 125 512 112C512 85.49 490.5 64 464 64h-416C21.49 64 0 85.49 0 112C0 125 6.01 137.3 16.29 145.3z"
-                ></path>
-              </svg>
+
+
+
+
+
+
+
+      <div name="content" style="width: 100%; height: 100%;">
+
+        <seam-wizard>
+
+          <seam-wizard-progress-bar slot ="progress-bar">
+            <seam-icon slot="progress-bar-left-media">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cake-slice" class="svg-inline--fa fa-cake-slice" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M571.8 238.8C574.5 228.9 576 218.6 576 208C576 146.1 525.9 96 464 96c-16.75 0-32.88 3.625-48 10.75C384.4 61.75 331.8 32 272 32C177.6 32 100.2 106.4 96.2 200.1C39.2 220.1 0 274.3 0 336C0 415.6 64.38 480 144 480H512c70.75 0 128-57.25 128-128C640 305 614.3 261.3 571.8 238.8zM507.5 448H149.5c-58.31 0-110.9-42.16-116.9-100.2C26.79 291.2 63.27 241.9 114.3 227.1c8.367-2.291 13.78-10.26 13.73-18.94C128 208.7 128 208.4 128 208C127.1 147.3 165.1 91.38 222.7 72.19c71.47-23.82 139.2 6.727 172.3 60.89c5.984 9.803 18.35 11.99 28.22 6.111c16.88-10.06 37.78-14.07 59.94-8.988c26.85 6.154 49.45 27 57.26 53.41c5.799 19.61 4.307 38.74-2.508 55.16c-4.137 9.969 2.061 20.75 11.98 24.1c37.34 15.97 62.42 55.06 57.5 99.25C601.9 412.3 557.1 448 507.5 448zM251.3 267.3L304 214.6V384c0 8.844 7.156 16 16 16s16-7.156 16-16V214.6l52.69 52.69c6.25 6.25 16.38 6.25 22.62 0s6.25-16.38 0-22.62l-80-80C328.2 161.6 324.1 160 320 160S311.8 161.6 308.7 164.7l-80 80c-6.25 6.25-6.25 16.38 0 22.62S245.1 273.6 251.3 267.3z"></path></svg>
             </seam-icon>
-          </seam-text-input>
-          <seam-text-input
-            label-text="Password"
-            kind="password"
-            icon-placement="before"
-            placeholder="password"
-          >
-            <seam-icon slot="before">
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                data-prefix="fas"
-                data-icon="key"
-                class="svg-inline--fa fa-key"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                style="display: none"
-                height="256px"
-                width="256px"
-              >
-                <path
-                  fill="currentColor"
-                  d="M336 0c-97.2 0-176 78.8-176 176c0 14.71 2.004 28.93 5.406 42.59l-156 156C3.371 380.6 0 388.8 0 397.3V496C0 504.8 7.164 512 16 512l96 0c8.836 0 16-7.164 16-16v-48h48c8.836 0 16-7.164 16-16v-48h57.37c4.242 0 8.312-1.688 11.31-4.688l32.72-32.72C307.1 349.1 321.3 351.1 336 351.1c97.2 0 176-78.8 176-176S433.2 0 336 0zM376 176c-22.09 0-40-17.91-40-40S353.9 96 376 96S416 113.9 416 136S398.1 176 376 176z"
-                ></path>
-              </svg>
+            <p slot="progress-bar-left-media-title"> test1</p>
+
+            <hr slot="progress-bar-divider" style="border-top: solid; border-top-width: 2px; border-radius: 10px; border-color: white; width: 100%;"/>  
+            
+            <seam-icon slot="progress-bar-right-media">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2021 Fonticons, Inc. --><path d="M509.7 498.3l-149.2-149.2C394.8 312.1 415.1 262.6 415.1 208c0-114.9-93.13-208-208-208S-.0002 93.13-.0002 208S93.12 416 207.1 416c54.55 0 104.1-21.17 141.2-55.54l149.2 149.2C499.9 511.2 501.9 512 503.1 512s4.094-.7813 5.656-2.344C512.8 506.5 512.8 501.5 509.7 498.3zM207.1 400c-105.9 0-192-86.13-192-192s86.13-192 192-192s192 86.13 192 192S313.9 400 207.1 400z"/></svg>
             </seam-icon>
-          </seam-text-input>
-          <seam-divider transparent></seam-divider>
-          <seam-tooltip slot="actions-submit" placement="bottom">
-            <seam-button slot="target" name="Sign In" full></seam-button>
-            <seam-tooltip-content slot="tooltip">
-              <p>
-                This is a really really really really really really long
-                text.<br />
-                This is a really really really really really really long
-                text.<br />
-                This is a really really really really really really long
-                text.<br />
-                This is a really really really really really really long
-                text.<br />
-                This is a really really really really really really long
-                text.<br />
-              </p>
-            </seam-tooltip-content>
-          </seam-tooltip>
-        </seam-form>
-      </seam-card>
+            <p slot="progress-bar-right-media-title"> test2</p>
+          </seam-wizard-progress-bar>
+
+          <seam-wizard-content slot ="content">            
+            <seam-icon size="large" slot="content">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.0.0-beta3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2021 Fonticons, Inc. --><path d="M571.8 238.8C574.5 228.9 576 218.6 576 208C576 146.1 525.9 96 464 96c-16.75 0-32.88 3.625-48 10.75C384.4 61.75 331.8 32 272 32C177.6 32 100.2 106.4 96.2 200.1C39.2 220.1 0 274.3 0 336C0 415.6 64.38 480 144 480H512c70.75 0 128-57.25 128-128C640 305 614.3 261.3 571.8 238.8zM507.5 448H149.5c-58.31 0-110.9-42.16-116.9-100.2C26.79 291.2 63.27 241.9 114.3 227.1c8.367-2.291 13.78-10.26 13.73-18.94C128 208.7 128 208.4 128 208C127.1 147.3 165.1 91.38 222.7 72.19c71.47-23.82 139.2 6.727 172.3 60.89c5.984 9.803 18.35 11.99 28.22 6.111c16.88-10.06 37.78-14.07 59.94-8.988c26.85 6.154 49.45 27 57.26 53.41c5.799 19.61 4.307 38.74-2.508 55.16c-4.137 9.969 2.061 20.75 11.98 24.1c37.34 15.97 62.42 55.06 57.5 99.25C601.9 412.3 557.1 448 507.5 448zM251.3 267.3L304 214.6V384c0 8.844 7.156 16 16 16s16-7.156 16-16V214.6l52.69 52.69c6.25 6.25 16.38 6.25 22.62 0s6.25-16.38 0-22.62l-80-80C328.2 161.6 324.1 160 320 160S311.8 161.6 308.7 164.7l-80 80c-6.25 6.25-6.25 16.38 0 22.62S245.1 273.6 251.3 267.3z"/></svg>
+            </seam-icon>
+            <p slot="post-content-element">Drag or Choose a file</p>
+          </seam-wizard-content>
+
+          <seam-wizard-interactions slot ="interactions">
+            <seam-button slot="interaction-right" kind="subtle" name="cancel"></seam-button>
+          </seam-wizard-interactions>          
+
+        </seam-wizard>
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
       <seam-footer slot="footer">
         <seam-logo slot="before" short></seam-logo>
         <seam-button slot="before" name="Terms of Service" ghost></seam-button>

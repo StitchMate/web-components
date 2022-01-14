@@ -1,1 +1,0 @@
-import{c as t}from"./chunk-5XWOEVYA.js";import{h as s}from"atomico";import{c as r}from"atomico";function o({short:e}){return s("host",{shadowDom:!0},s("a",{href:"/",class:"text-blue-500 dark:text-white md:text-xl text-3xl font-semibold"},e?"S.":"Seam."))}o.props={short:{type:Boolean,value:!1}};o.styles=[t];var a=r(o);customElements.define("seam-logo",a);export{a};
