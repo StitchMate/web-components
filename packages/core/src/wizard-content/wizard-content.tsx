@@ -11,7 +11,9 @@ function wizardContent() {
                     e.preventDefault();
                     e.stopPropagation();
                     // onDrag(e);
-                    // console.dir(e.dataTransfer.files[0]);
+                    console.dir(e.dataTransfer.items[0].webkitGetAsEntry().createReader().readEntries(file => {
+                        console.log(file);
+                    }));
                     // console.log(URL.createObjectURL(e.dataTransfer.files[0]))// to preview a file
                     // let formData = new FormData();
                     // formData.append('file', e.dataTransfer.files[0])
