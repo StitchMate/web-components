@@ -1,11 +1,9 @@
-import { c, useEffect, useEvent } from "atomico";
-import { useBus } from "../hooks/use-bus";
+import { c, useEffect, useEvent, Props } from "atomico";
 import classNames from "classnames";
 import styles from "./seam-button.css";
 import tailwindcss from "../tailwindcss.css";
 
-function seamButton({ loading, success, fail }) {
-    useBus("test", (e) => console.log("Received: ", e));
+function seamButton({ loading, success, fail }: Props<typeof seamButton>) {
     let loadingDispatch = useEvent("seam-loading", {
         bubbles: true,
         composed: true
@@ -22,17 +20,9 @@ function seamButton({ loading, success, fail }) {
     });
 
     useEffect(() => {
-        switch(true) {
-            case (loading):
-                loadingDispatch();
-                break;
-            case (success):
-                successDispatch();
-                break;
-            case (fail):
-                failDispatch();
-                break;
-        }
+        loading ? loadingDispatch() : null;
+        success ? successDispatch(): null;
+        fail ? failDispatch(): null;
     });
 
     return (

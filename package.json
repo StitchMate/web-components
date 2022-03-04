@@ -36,7 +36,8 @@
     "./seam-button": "./dist/seam-button/seam-button.js",
     "./seam-check-icon": "./dist/seam-check-icon/seam-check-icon.js",
     "./seam-loading-icon": "./dist/seam-loading-icon/seam-loading-icon.js",
-    "./seam-x-icon": "./dist/seam-x-icon/seam-x-icon.js"
+    "./seam-x-icon": "./dist/seam-x-icon/seam-x-icon.js",
+    "./use-bus": "./dist/hooks/use-bus.js"
   },
   "types": "types/components.d.ts",
   "typesVersions": {
@@ -55,6 +56,9 @@
       ],
       "seam-x-icon": [
         "./types/seam-x-icon/seam-x-icon.d.ts"
+      ],
+      "use-bus": [
+        "./types/hooks/use-bus.d.ts"
       ]
     }
   }
