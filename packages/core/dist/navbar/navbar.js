@@ -1,1 +1,1 @@
-import{a}from"../chunk-HSB7IISL.js";import"../chunk-5XWOEVYA.js";export{a as Navbar};
+import{a}from"../chunk-DFDN4QHP.js";import"../chunk-7APFZWDL.js";export{a as Navbar};

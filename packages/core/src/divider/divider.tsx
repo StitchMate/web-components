@@ -16,7 +16,10 @@ function divider({ transparent }: Props<typeof divider.props>) {
 }
 
 divider.props = {
-  transparent: Boolean,
+  transparent: {
+    type: Boolean,
+    value: false,
+  },
 };
 
 divider.styles = [tailwindcss];

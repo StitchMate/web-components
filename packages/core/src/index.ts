@@ -12,3 +12,8 @@ import "./ui-shell/ui-shell";
 import "./navbar/navbar";
 import "./logo/logo";
 import "./footer/footer";
+import "./wizard/wizard";
+import "./wizard-progress-bar/wizard-progress-bar";
+import "./wizard-content/wizard-content";
+import "./wizard-interactions/wizard-interactions";
+import "./wizard-file-upload-content/wizard-file-upload-content";

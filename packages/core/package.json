@@ -5,7 +5,7 @@
     "site"
   ],
   "repository": "git@github.com:seam-dev/web-components.git",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "scripts": {
     "start": "vite",
     "build": "vite build --outDir docs --base /",
@@ -56,7 +56,12 @@
     "./card": "./dist/card/card.js",
     "./divider": "./dist/divider/divider.js",
     "./footer": "./dist/footer/footer.js",
-    "./form": "./dist/form/form.js"
+    "./form": "./dist/form/form.js",
+    "./wizard-file-upload-content": "./dist/wizard-file-upload-content/wizard-file-upload-content.js",
+    "./wizard-interactions": "./dist/wizard-interactions/wizard-interactions.js",
+    "./wizard-progress-bar": "./dist/wizard-progress-bar/wizard-progress-bar.js",
+    "./wizard": "./dist/wizard/wizard.js",
+    "./wizard-content": "./dist/wizard-content/wizard-content.js"
   },
   "types": "types/index.d.ts",
   "typesVersions": {
@@ -108,6 +113,21 @@
       ],
       "footer": [
         "./types/footer/footer.d.ts"
+      ],
+      "wizard": [
+        "./types/wizard/wizard.d.ts"
+      ],
+      "wizard-progress-bar": [
+        "./types/wizard-progress-bar/wizard-progress-bar.d.ts"
+      ],
+      "wizard-content": [
+        "./types/wizard-content/wizard-content.d.ts"
+      ],
+      "wizard-interactions": [
+        "./types/wizard-interactions/wizard-interactions.d.ts"
+      ],
+      "wizard-file-upload-content": [
+        "./types/wizard-file-upload-content/wizard-file-upload-content.d.ts"
       ]
     }
   }
