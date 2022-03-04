@@ -1,0 +1,46 @@
+.button {
+    @apply border-none h-10;
+    @apply px-[var(--seam-button-horizontal-padding)];
+    border-radius: var(--seam-button-radius);
+    font-size: var(--seam-text-base);
+    transition-property: padding border-radius;
+    transition-duration: 1s;
+}
+
+.button--loading {
+    padding: 0.5rem;
+    @apply rounded-full;
+    transition-property: padding border-radius;
+    transition-duration: 1s;
+}
+
+.button--success {
+    padding: 0.5rem;
+    @apply rounded-full text-white;
+    background: rgb(52 211 153);
+    transition-property: padding border-radius background;
+    transition-duration: 1s;
+}
+
+.button--fail {
+    padding: 0.5rem;
+    @apply rounded-full text-white;
+    background: rgb(244 63 94);
+    transition-property: padding border-radius background;
+    transition-duration: 1s;
+}
+
+.button--primary {
+    @apply text-white;
+    background: var(--seam-button-primary);
+    transition-property: padding border-radius background;
+    transition-duration: 1s;
+}
+
+.button--primary:hover {
+    background: var(--seam-button-primary--hover);
+}
+
+.button--primary:active {
+    background: var(--seam-button-primary--active);
+}

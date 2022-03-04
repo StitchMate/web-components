@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atomico - Started</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/page.css" />
+    <script async type="module" src="./src/components.js"></script>
+    <script src="https://unpkg.com/mitt/dist/mitt.umd.js"></script>
+    <script id="todoStore" async type="module">
+      import {
+        createStore
+      } from "https://cdn.skypack.dev/solid-js/store";
+      const [store, setStore] = createStore({ todos: [] });
+      const addTodo = (text) => {
+        setStore('todos', (todos) => [...todos, { id: todos.length + 1, text, completed: false}])
+      }
+      const toggleTodo = (id) => {
+        setStore("todos", todo => todo.id === id, "completed", completed => !completed);
+      }
+
+      const todoStore = {
+        data: store,
+        actions: {
+          addTodo,
+          toggleTodo
+        }
+      };
+      SeamSDK.stores.set("todo", todoStore);
+    </script>
+    <script>
+        var SeamSDK = {
+          bus: mitt(),
+          stores: new Map()
+        };
+        Object.freeze(SeamSDK);
+    </script>
+  </head>
+  <body>
+    <h1>This is an example of how to use Tailwind with Atomico</h1>
+    <p>
+      For this example I have used
+      <a href="https://flowbite.com/docs/getting-started/introduction/"
+        >Flowbite</a
+      >
+      components to demonstrate the use of Tailwind within the shadowDOM
+    </p>
+    <div class="container">
+      <seam-button id="button">Save</seam-button>
+    </div>
+  </body>
+  <script>
+    var el = document.getElementById("button");
+    el.addEventListener("seam-loading", () => console.log("loading"));
+    el.addEventListener("seam-success", () => console.log("success"));
+    el.addEventListener("seam-fail", () => console.log("fail"));
+    setTimeout(() => el.setAttribute("loading", true), 1000);
+    setTimeout(() => {
+      el.setAttribute("loading", false);
+      el.setAttribute("success", true);
+    }, 7000);
+    setTimeout(() => {
+      el.setAttribute("success", false);
+    }, 9000);
+  </script>
+</html>
