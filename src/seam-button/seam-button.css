@@ -1,8 +1,7 @@
 .button {
-    @apply border-none select-none;
-    font-size: var(--seam-text-base);
+    @apply border-none select-none text-base font-sans;
     transition-property: padding border-radius;
-    transition-duration: 1s;
+    transition-duration: 0.2s;
 }
 
 .button-spacing--default {
@@ -21,23 +20,49 @@
     padding: 0.5rem;
     @apply rounded-full;
     transition-property: padding border-radius;
-    transition-duration: 1s;
+    transition-duration: 0.2s;
 }
 
 .button--success {
     padding: 0.5rem;
-    @apply rounded-full text-white;
-    background: rgb(52 211 153);
+    @apply rounded-full text-white cursor-auto;
+    @apply bg-emerald-400;
     transition-property: padding border-radius background;
-    transition-duration: 1s;
+    transition-duration: 0.2s;
+    &:hover {
+        @apply bg-emerald-500;
+    }
+}
+
+.button--success--subtle {
+    padding: 0.5rem;
+    @apply rounded-full text-emerald-400 cursor-auto;
+    transition-property: padding border-radius background;
+    transition-duration: 0.2s;
+    &:hover {
+        @apply bg-emerald-500/20;
+    }
 }
 
 .button--fail {
     padding: 0.5rem;
-    @apply rounded-full text-white;
-    background: rgb(244 63 94);
+    @apply rounded-full text-white cursor-auto;
+    @apply bg-rose-500;
     transition-property: padding border-radius background;
-    transition-duration: 1s;
+    transition-duration: 0.2s;
+    &:hover {
+        @apply bg-rose-600;
+    }
+}
+
+.button--fail--subtle {
+    padding: 0.5rem;
+    @apply rounded-full text-rose-500 cursor-auto;
+    transition-property: padding border-radius background;
+    transition-duration: 0.2s;
+    &:hover {
+        @apply bg-rose-600/20;
+    }
 }
 
 .button--primary {
@@ -64,5 +89,16 @@
     &:active {
         background: var(--seam-button-subtle--active);
         @apply text-blue-600;
+    }
+}
+
+.button--link {
+    color: var(--seam-button-link);
+    &:hover {
+        @apply underline;
+        color: var(--seam-button-link--hover)
+    }
+    &:active {
+        color: var(--seam-button-link--active)
     }
 }
