@@ -18,6 +18,11 @@ function seamButton({ loading, success, fail }: Props<typeof seamButton>) {
         bubbles: true,
         composed: true
     });
+    
+    let clickDispatch = useEvent("seam-click", {
+        bubbles: true,
+        composed: true
+    });
 
     useEffect(() => {
         loading ? loadingDispatch() : null;
@@ -27,7 +32,7 @@ function seamButton({ loading, success, fail }: Props<typeof seamButton>) {
 
     return (
         <host shadowDom>
-            <button class={classNames("button", {
+            <button onclick={() => clickDispatch()} class={classNames("button", {
                 "button--loading": loading,
                 "button--success": success,
                 "button--fail": fail,
@@ -40,6 +45,10 @@ function seamButton({ loading, success, fail }: Props<typeof seamButton>) {
 }
 
 seamButton.props = {
+    variant: {
+        type: String,
+        value: "primary"
+    },
     loading: {
         type: Boolean,
         value: false,

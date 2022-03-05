@@ -1,71 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Atomico - Started</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./src/page.css" />
-    <script async type="module" src="./src/components.js"></script>
-    <script src="https://unpkg.com/mitt/dist/mitt.umd.js"></script>
-    <script id="todoStore" async type="module">
-      import {
-        createStore
-      } from "https://cdn.skypack.dev/solid-js/store";
-      const [store, setStore] = createStore({ todos: [] });
-      const addTodo = (text) => {
-        setStore('todos', (todos) => [...todos, { id: todos.length + 1, text, completed: false}])
-      }
-      const toggleTodo = (id) => {
-        setStore("todos", todo => todo.id === id, "completed", completed => !completed);
-      }
 
-      const todoStore = {
-        data: store,
-        actions: {
-          addTodo,
-          toggleTodo
-        }
-      };
-      SeamSDK.stores.set("todo", todoStore);
-    </script>
-    <script>
-        var SeamSDK = {
-          bus: mitt(),
-          stores: new Map()
-        };
-        Object.freeze(SeamSDK);
-    </script>
-  </head>
-  <body>
-    <h1>This is an example of how to use Tailwind with Atomico</h1>
-    <p>
-      For this example I have used
-      <a href="https://flowbite.com/docs/getting-started/introduction/"
-        >Flowbite</a
-      >
-      components to demonstrate the use of Tailwind within the shadowDOM
-    </p>
-    <div class="container">
-      <seam-button id="button">Save</seam-button>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atomico - Started</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="./src/page.css" />
+  <script async type="module" src="./src/components.js"></script>
+  <script async type="module" src="./src/router.js"></script>
   <script>
-    var el = document.getElementById("button");
-    el.addEventListener("seam-loading", () => console.log("loading"));
-    el.addEventListener("seam-success", () => console.log("success"));
-    el.addEventListener("seam-fail", () => console.log("fail"));
-    setTimeout(() => el.setAttribute("loading", true), 1000);
-    setTimeout(() => {
-      el.setAttribute("loading", false);
-      el.setAttribute("success", true);
-    }, 7000);
-    setTimeout(() => {
-      el.setAttribute("success", false);
-    }, 9000);
+    function toggleHidden() {
+      let el = document.getElementById("sidebar");
+      if (el.style.display == "none") {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    }
   </script>
+</head>
+
+<body>
+  <a-router-redirect class="flex h-full">
+    <svg onclick="toggleHidden()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fixed text-blue-500 hover:cursor-pointer top-2 left-2 bg-white">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+    <div id="sidebar" class="flex flex-col bg-white min-w-[300px] w-[300px] shadow-lg shadow-gray-700 p-4 hover:overflow-scroll overflow-auto">
+      <h1 class="whitespace-nowrap font-sans text-blue-500 text-xl pt-8">Seam Components - 0.0.1</h1>
+      <h2 class="whitespace-nowrap pt-4 font-semibold font-sans text-blue-500 text-lg">Components</h2>
+      <hr />
+      <h3 class="whitespace-nowrap pt-1 font-sans text-blue-500 text-lg">Atoms</h3>
+      <ul class="whitespace-nowrap list-disc pl-5 text-blue-500 text-sm">
+        <li><a class="whitespace-nowrap hover:underline" href="/button">Button</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col flex-grow p-8 hover:overflow-scroll overflow-auto h-full">
+      <a-router-switch>
+        <a-router-case path="/" for="home"></a-router-case>
+        <a-router-case path="/button" load="./src/seam-button/seam-button.examples.js"></a-router-case>
+        <h1 slot="home">Hi</h1>
+      </a-router-switch>
+    </div>
+  </a-router-redirect>
+</body>
+
 </html>
