@@ -1,9 +1,4 @@
 let template = `
-    <style>
-      .pink::part(base) {
-        background: pink;   
-      }
-    </style>
     <div class="flex flex-col px-4 pt-12 pb-8">
         <h1 class="text-4xl font-sans">Button</h1>
         <h2 class="whitespace-nowrap my-2 text-xl text-slate-600">&lt;seam-button&gt; | SeamButton</h2>
@@ -27,6 +22,7 @@ let template = `
             <div class="py-4 px-6">
                 <seam-button>Button</seam-button>
                 <seam-button variant="subtle">Button</seam-button>
+                <seam-button variant="link">Button</seam-button>
             </div>
             <div class="py-4 px-4 bg-gray-100 border-transparent border-t border-t-gray-200 flex flex-col">
                 <code class="language-html">
@@ -35,15 +31,18 @@ let template = `
                 <code class="language-html">
                     &lt;seam-button variant="subtle"&gt;&lt;/seam-button&gt;
                 </code>
+                <code class="language-html">
+                    &lt;seam-button variant="link"&gt;&lt;/seam-button&gt;
+                </code>
             </div>
         </div>
         <h4 class="mt-4 mb-2 text-lg font-sans">Spacing</h4>
-        <p class="font-sans font-light">Use the <code>spacing</code> attribute to set the button's spacing.</p>
+        <p class="font-sans font-light">Use the <code>spacing</code> attribute to set the button's spacing. The <code class="language-html">none</code> size is usually used for links/breadcrumbs, while the <code>compact</code> size is expcted for use in tables.</p>
         <div class="mt-2 border rounded flex flex-col" >
             <div class="py-4 px-6">
                 <seam-button>Button</seam-button>
                 <seam-button spacing="compact">Button</seam-button>
-                <seam-button spacing="none" variant="subtle">Button</seam-button>
+                <seam-button spacing="none" variant="link">Button</seam-button>
             </div>
             <div class="py-4 px-4 bg-gray-100 border-transparent border-t border-t-gray-200 flex flex-col">
                 <code class="language-html">
@@ -53,7 +52,7 @@ let template = `
                     &lt;seam-button spacing="compact"&gt;&lt;/seam-button&gt;
                 </code>
                 <code class="language-html">
-                    &lt;seam-button spacing="none" variant="subtle"&gt;&lt;/seam-button&gt;
+                    &lt;seam-button spacing="none" variant="link"&gt;&lt;/seam-button&gt;
                 </code>
             </div>
         </div>
@@ -64,7 +63,9 @@ let template = `
                 <seam-button loading>Button</seam-button>
                 <seam-button loading variant="subtle">Button</seam-button>
                 <seam-button success>Button</seam-button>
+                <seam-button success variant="subtle">Button</seam-button>
                 <seam-button fail>Button</seam-button>
+                <seam-button fail variant="subtle">Button</seam-button>
             </div>
             <div class="py-4 px-4 bg-gray-100 border-transparent border-t border-t-gray-200 flex flex-col">
                 <code class="language-html">
@@ -77,7 +78,13 @@ let template = `
                     &lt;seam-button success&gt;&lt;/seam-button&gt;
                 </code>
                 <code class="language-html">
+                    &lt;seam-button success variant="subtle"&gt;&lt;/seam-button&gt;
+                </code>
+                <code class="language-html">
                     &lt;seam-button fail&gt;&lt;/seam-button&gt;
+                </code>
+                <code class="language-html">
+                    &lt;seam-button fail variant="subtle"&gt;&lt;/seam-button&gt;
                 </code>
             </div>
         </div>
@@ -118,7 +125,7 @@ let template = `
             </tr>
             <tr class="border-b border-b-200">
                 <td class="py-4"><code>variant</code></td>
-                <td class="py-4">The button's variant.</td>
+                <td class="py-4 break-words w-[350px]">The button's variant.</td>
                 <td class="py-4 text-center"><seam-check-icon></seam-check-icon></td>
                 <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
                 <td class="py-4 text-center">"primary" | "subtle"</td>
@@ -126,7 +133,7 @@ let template = `
             </tr>
             <tr class="border-b border-b-200">
                 <td class="py-4"><code>spacing</code></td>
-                <td class="py-4">The button's spacing.</td>
+                <td class="py-4 break-words w-[350px]">The button's spacing.</td>
                 <td class="py-4 text-center"><seam-check-icon></seam-check-icon></td>
                 <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
                 <td class="py-4 text-center">"default" | "compact" | "none"</td>
@@ -134,7 +141,7 @@ let template = `
             </tr>
             <tr class="border-b border-b-200 bg-gray-100">
                 <td class="py-4"><code>loading</code></td>
-                <td class="py-4">Renders button in a loading state.</td>
+                <td class="py-4 break-words w-[350px]">Renders button in a loading state.</td>
                 <td class="py-4 text-center"><seam-check-icon></seam-check-icon></td>
                 <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
                 <td class="py-4 text-center">boolean</td>
@@ -142,7 +149,7 @@ let template = `
             </tr>
             <tr class="border-b border-b-200">
                 <td class="py-4"><code>success</code></td>
-                <td class="py-4">Renders button in a success state.</td>
+                <td class="py-4 break-words w-[350px]">Renders button in a success state.</td>
                 <td class="py-4 text-center"><seam-check-icon></seam-check-icon></td>
                 <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
                 <td class="py-4 text-center">boolean</td>
@@ -150,11 +157,35 @@ let template = `
             </tr>
             <tr class="border-b border-b-200 bg-gray-100">
                 <td class="py-4"><code>fail</code></td>
-                <td class="py-4">Renders button in a fail state.</td>
+                <td class="py-4 break-words w-[350px]">Renders button in a fail state.</td>
                 <td class="py-4 text-center"><seam-check-icon></seam-check-icon></td>
                 <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
                 <td class="py-4 text-center">boolean</td>
                 <td class="py-4 text-center">false</td>
+            </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code>href</code></td>
+                <td class="py-4 break-words w-[350px]">If the button is of variant <code class="language-html">link</code>, set href since it will be rendered as an <a> tag.</td>
+                <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
+                <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
+                <td class="py-4 text-center">URL</td>
+                <td class="py-4 text-center">undefined</td>
+            </tr>
+            <tr class="border-b border-b-200 bg-gray-100">
+                <td class="py-4"><code>target</code></td>
+                <td class="py-4 break-words w-[350px]">Only used if href is set and button is of variant <code class="language-html">link</code>. Tells browser where to open the link</td>
+                <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
+                <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
+                <td class="py-4 text-center">'_blank' | '_parent' | '_self' | '_top' | undefined</td>
+                <td class="py-4 text-center">undefined</td>
+            </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code>download</code></td>
+                <td class="py-4 break-words w-[350px]">Only used if href is set and button is of variant <code class="language-html">link</code>. Prompts user to to save the linked href as a file.</td>
+                <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
+                <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
+                <td class="py-4 text-center">string | undefined</td>
+                <td class="py-4 text-center">undefined</td>
             </tr>
         </table>
         <h3 class="mt-4 mb-2 text-xl">Events</h3>
@@ -221,6 +252,50 @@ let template = `
                 <th class="font-medium text-left">Name</th>
                 <th class="font-medium text-left">Description</th>
             </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code class="language-html">--seam-base-text</code></td>
+                <td class="py-4">Controls the base text size across all Seam components</td>
+            </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code class="language-html">--seam-button-radius</code></td>
+                <td class="py-4">Controls how rounded the button corners are</td>
+            </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code class="language-html">--seam-button-primary</code></td>
+                <td class="py-4">Controls the color of a primary button in the default state</td>
+            </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code class="language-html">--seam-button-primary--hover</code></td>
+                <td class="py-4">Controls the color of a primary button in the hover state</td>
+            </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code class="language-html">--seam-button-primary--active</code></td>
+                <td class="py-4">Controls the color of a primary button in the active state</td>
+            </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code class="language-html">--seam-button-subtle</code></td>
+                <td class="py-4">Controls the color of a subtle button in the default state</td>
+            </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code class="language-html">--seam-button-subtle--hover</code></td>
+                <td class="py-4">Controls the color of a subtle button in the hover state</td>
+            </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code class="language-html">--seam-button-subtle--active</code></td>
+                <td class="py-4">Controls the color of a subtle button in the active state</td>
+            </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code class="language-html">--seam-button-link</code></td>
+                <td class="py-4">Controls the color of a link button in the default state</td>
+            </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code class="language-html">--seam-button-link--hover</code></td>
+                <td class="py-4">Controls the color of a link button in the hover state</td>
+            </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code class="language-html">--seam-button-link--active</code></td>
+                <td class="py-4">Controls the color of a link button in the active state</td>
+            </tr>
         </table>
         <h3 class="mt-4 mb-2 text-xl">Dependencies</h3>
         <hr />
@@ -238,3 +313,7 @@ document.querySelectorAll('code').forEach(el => {
   // then highlight each
   hljs.highlightElement(el);
 });
+
+document.addEventListener("seam-click", (e) => {
+    console.log("button clicked", e);
+})
