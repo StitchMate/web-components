@@ -1,0 +1,1 @@
+import("@atomico/components/router");

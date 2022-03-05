@@ -13,6 +13,7 @@
     "@atomico/components": "^1.6.0",
     "atomico": "^1.34.5",
     "brotli-cli": "^1.0.3",
+    "highlight.js": "^11.4.0",
     "mitt": "^3.0.0",
     "postcss": "^8.4.7",
     "solid-js": "^1.3.10"
