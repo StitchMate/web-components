@@ -10,7 +10,6 @@ OpenProps['--seam-button-subtle--active'] = 'rgba(59, 130, 246, 0.4)';
 OpenProps['--seam-button-horizontal-padding'] = '1rem';
 OpenProps['--seam-button-vertical-padding'] = '0.75rem';
 OpenProps['--seam-text-base'] = '0.875rem';
-OpenProps['--seam-primary'] = 'blue';
 
 module.exports = {
   plugins: {
@@ -28,5 +27,6 @@ module.exports = {
       ],
       custom_selector: ':host'
     },
+    'autoprefixer': {}
   }
 }

@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "vite",
-    "build": "vite build --outDir docs",
+    "build": "vite build --outDir docs --base /web-components",
     "test": "wtr src/**/*.test.js --node-resolve",
     "exports": "exports src/components.js src/**/*.jsx --exports --types --main components --minify",
     "prepublishOnly": "npm run test && npm run exports",
@@ -12,6 +12,7 @@
   "dependencies": {
     "@atomico/components": "^1.6.0",
     "atomico": "^1.34.5",
+    "autoprefixer": "^10.4.2",
     "brotli-cli": "^1.0.3",
     "highlight.js": "^11.4.0",
     "mitt": "^3.0.0",

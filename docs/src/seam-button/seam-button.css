@@ -1,10 +1,20 @@
 .button {
-    @apply border-none h-10;
-    @apply px-[var(--seam-button-horizontal-padding)];
-    border-radius: var(--seam-button-radius);
+    @apply border-none select-none;
     font-size: var(--seam-text-base);
     transition-property: padding border-radius;
     transition-duration: 1s;
+}
+
+.button-spacing--default {
+    @apply h-10;
+    border-radius: var(--seam-button-radius);
+    @apply px-[var(--seam-button-horizontal-padding)];
+}
+
+.button-spacing--compact {
+    @apply h-6;
+    border-radius: calc(var(--seam-button-radius) / 1.67);
+    @apply px-[var(--seam-button-horizontal-padding)];
 }
 
 .button--loading {
@@ -34,7 +44,7 @@
     @apply text-white;
     background: var(--seam-button-primary);
     transition-property: padding border-radius background;
-    transition-duration: 1s;
+    transition-duration: 0.2s;
     &:hover {
         background: var(--seam-button-primary--hover);
     }

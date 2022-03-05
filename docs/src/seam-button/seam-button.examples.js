@@ -37,6 +37,26 @@ let template = `
                 </code>
             </div>
         </div>
+        <h4 class="mt-4 mb-2 text-lg font-sans">Spacing</h4>
+        <p class="font-sans font-light">Use the <code>spacing</code> attribute to set the button's spacing.</p>
+        <div class="mt-2 border rounded flex flex-col" >
+            <div class="py-4 px-6">
+                <seam-button>Button</seam-button>
+                <seam-button spacing="compact">Button</seam-button>
+                <seam-button spacing="none" variant="subtle">Button</seam-button>
+            </div>
+            <div class="py-4 px-4 bg-gray-100 border-transparent border-t border-t-gray-200 flex flex-col">
+                <code class="language-html">
+                    &lt;seam-button&gt;&lt;/seam-button&gt;
+                </code>
+                <code class="language-html">
+                    &lt;seam-button spacing="compact"&gt;&lt;/seam-button&gt;
+                </code>
+                <code class="language-html">
+                    &lt;seam-button spacing="none" variant="subtle"&gt;&lt;/seam-button&gt;
+                </code>
+            </div>
+        </div>
         <h4 class="mt-4 mb-2 text-lg font-sans">States</h4>
         <p class="font-sans font-light">A button can take on various states of <code>loading</code>, <code>success</code>, or <code>fail</code> via boolean attributes.</p>
         <div class="mt-2 border rounded flex flex-col" >
@@ -68,7 +88,13 @@ let template = `
                 <seam-button class="pink">Pink Button</seam-button>
                 <style>
                     seam-button.pink::part(base) {
-                        background: pink;
+                        background: rgb(244 63 94);
+                    }
+                    seam-button.pink::part(base):hover {
+                        background: rgb(225 29 72);   
+                    }
+                    seam-button.pink::part(base):active {
+                        background: rgb(251 113 133);   
                     }
                 </style>
             </div>
@@ -76,7 +102,7 @@ let template = `
                     &lt;seam-button class="pink"&gt;Pink Button&lt;/seam-button&gt;
                 </code>
                 <code class="hljs language-html flex flex-col whitespace-pre-wrap">
-                    &lt;style&gt;  seam-button.pink::part(base) {\n    background: pink;\n  }&lt;/style&gt;
+                    &lt;style&gt;  seam-button.pink::part(base) {\n    background: rgb(244 63 94);\n  }&lt;/style&gt;\n&lt;style&gt;  seam-button.pink::part(base):hover {\n    background: rgb(225 29 72);\n  }&lt;/style&gt;\n&lt;style&gt;  seam-button.pink::part(base):active {\n    background: rgb(251 113 133);\n  }&lt;/style&gt;
                 </code>
         </div>
         <h3 class="mt-4 mb-2 text-xl">Properties</h3>
@@ -97,6 +123,14 @@ let template = `
                 <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
                 <td class="py-4 text-center">"primary" | "subtle"</td>
                 <td class="py-4 text-center">"primary"</td>
+            </tr>
+            <tr class="border-b border-b-200">
+                <td class="py-4"><code>spacing</code></td>
+                <td class="py-4">The button's spacing.</td>
+                <td class="py-4 text-center"><seam-check-icon></seam-check-icon></td>
+                <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
+                <td class="py-4 text-center">"default" | "compact" | "none"</td>
+                <td class="py-4 text-center">"default"</td>
             </tr>
             <tr class="border-b border-b-200 bg-gray-100">
                 <td class="py-4"><code>loading</code></td>
