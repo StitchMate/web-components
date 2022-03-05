@@ -95,7 +95,7 @@ let template = `
                 <td class="py-4">The button's variant.</td>
                 <td class="py-4 text-center"><seam-check-icon></seam-check-icon></td>
                 <td class="py-4 text-center"><seam-x-icon></seam-x-icon></td>
-                <td class="py-4 text-center">"primary"</td>
+                <td class="py-4 text-center">"primary" | "subtle"</td>
                 <td class="py-4 text-center">"primary"</td>
             </tr>
             <tr class="border-b border-b-200 bg-gray-100">
