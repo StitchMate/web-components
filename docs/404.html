@@ -23,9 +23,9 @@
       }
     }
   </script>
-  <script async type="module" crossorigin src="assets/index.6334fc48.js"></script>
-  <link rel="modulepreload" href="assets/vendor.8ab2a6ca.js">
-  <link rel="stylesheet" href="assets/index.f1333ce1.css">
+  <script async type="module" crossorigin src="/web-components/assets/index.0f5af741.js"></script>
+  <link rel="modulepreload" href="/web-components/assets/vendor.8ab2a6ca.js">
+  <link rel="stylesheet" href="/web-components/assets/index.f1333ce1.css">
 </head>
 
 <body>
@@ -41,13 +41,13 @@
       <hr />
       <h3 class="whitespace-nowrap pt-1 font-sans text-blue-500 text-lg">Atoms</h3>
       <ul class="whitespace-nowrap list-disc pl-5 text-blue-500 text-sm">
-        <li><a class="whitespace-nowrap hover:underline" href="button">Button</a></li>
+        <li><a class="whitespace-nowrap hover:underline" href="/button">Button</a></li>
       </ul>
     </div>
     <div class="flex flex-col flex-grow p-8 hover:overflow-scroll overflow-auto h-full">
       <a-router-switch>
-        <a-router-case path="/" for="home"></a-router-case>
-        <a-router-case path="/button" load="src/seam-button/seam-button.examples.js"></a-router-case>
+        <a-router-case path="/web-components" for="home"></a-router-case>
+        <a-router-case path="/web-components/button" load="/web-components/src/seam-button/seam-button.examples.js"></a-router-case>
         <h1 slot="home">Hi</h1>
       </a-router-switch>
     </div>
