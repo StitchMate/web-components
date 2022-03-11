@@ -37,7 +37,7 @@ function seamButton({
     loading ? loadingDispatch() : null;
     success ? successDispatch() : null;
     fail ? failDispatch() : null;
-  });
+  }, [loading, success, fail]);
 
   return (
     <host shadowDom>

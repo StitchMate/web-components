@@ -1,104 +1,105 @@
 .button {
-    @apply border-none select-none text-base font-sans;
-    transition-property: padding border-radius;
-    transition-duration: 0.2s;
+  @apply border-none select-none text-base font-sans;
+  transition-property: padding border-radius;
+  transition-duration: 0.2s;
+  background-image: "inherit";
 }
 
 .button-spacing--default {
-    @apply h-10;
-    border-radius: var(--seam-button-radius);
-    @apply px-[var(--seam-button-horizontal-padding)];
+  @apply h-10;
+  border-radius: var(--seam-radius);
+  @apply px-[var(--seam-button-horizontal-padding)];
 }
 
 .button-spacing--compact {
-    @apply h-6;
-    border-radius: calc(var(--seam-button-radius) / 1.67);
-    @apply px-[var(--seam-button-horizontal-padding)];
+  @apply h-6;
+  border-radius: calc(var(--seam-radius) / 1.67);
+  @apply px-[var(--seam-button-horizontal-padding)];
 }
 
 .button--loading {
-    padding: 0.5rem;
-    @apply rounded-full;
-    transition-property: padding border-radius;
-    transition-duration: 0.2s;
+  padding: 0.5rem;
+  @apply rounded-full;
+  transition-property: padding border-radius;
+  transition-duration: 0.2s;
 }
 
 .button--success {
-    padding: 0.5rem;
-    @apply rounded-full text-white cursor-auto;
-    @apply bg-emerald-400;
-    transition-property: padding border-radius background;
-    transition-duration: 0.2s;
-    &:hover {
-        @apply bg-emerald-500;
-    }
+  padding: 0.5rem;
+  @apply rounded-full text-white cursor-auto;
+  @apply bg-emerald-400;
+  transition-property: padding border-radius background;
+  transition-duration: 0.2s;
+  &:hover {
+    @apply bg-emerald-500;
+  }
 }
 
 .button--success--subtle {
-    padding: 0.5rem;
-    @apply rounded-full text-emerald-400 cursor-auto;
-    transition-property: padding border-radius background;
-    transition-duration: 0.2s;
-    &:hover {
-        @apply bg-emerald-500/20;
-    }
+  padding: 0.5rem;
+  @apply rounded-full text-emerald-400 cursor-auto;
+  transition-property: padding border-radius background;
+  transition-duration: 0.2s;
+  &:hover {
+    @apply bg-emerald-500/20;
+  }
 }
 
 .button--fail {
-    padding: 0.5rem;
-    @apply rounded-full text-white cursor-auto;
-    @apply bg-rose-500;
-    transition-property: padding border-radius background;
-    transition-duration: 0.2s;
-    &:hover {
-        @apply bg-rose-600;
-    }
+  padding: 0.5rem;
+  @apply rounded-full text-white cursor-auto;
+  @apply bg-rose-500;
+  transition-property: padding border-radius background;
+  transition-duration: 0.2s;
+  &:hover {
+    @apply bg-rose-600;
+  }
 }
 
 .button--fail--subtle {
-    padding: 0.5rem;
-    @apply rounded-full text-rose-500 cursor-auto;
-    transition-property: padding border-radius background;
-    transition-duration: 0.2s;
-    &:hover {
-        @apply bg-rose-600/20;
-    }
+  padding: 0.5rem;
+  @apply rounded-full text-rose-500 cursor-auto;
+  transition-property: padding border-radius background;
+  transition-duration: 0.2s;
+  &:hover {
+    @apply bg-rose-600/20;
+  }
 }
 
 .button--primary {
-    @apply text-white;
-    background: var(--seam-button-primary);
-    transition-property: padding border-radius background;
-    transition-duration: 0.2s;
-    &:hover {
-        background: var(--seam-button-primary--hover);
-    }
-    &:active {
-        background: var(--seam-button-primary--active);
-    }
+  @apply text-white;
+  background: var(--seam-button-primary);
+  transition-property: padding border-radius background;
+  transition-duration: 0.2s;
+  &:hover {
+    background: var(--seam-button-primary--hover);
+  }
+  &:active {
+    background: var(--seam-button-primary--active);
+  }
 }
 
 .button--subtle {
-    @apply text-slate-500;
-    background: var(--seam-button-subtle);
-    transition-property: padding border-radius background;
-    transition-duration: 0.2s;
-    &:hover {
-        background: var(--seam-button-subtle--hover);
-    }
-    &:active {
-        background: var(--seam-button-subtle--active);
-        @apply text-blue-600;
-    }
+  @apply text-slate-500;
+  background: var(--seam-button-subtle);
+  transition-property: padding border-radius background;
+  transition-duration: 0.2s;
+  &:hover {
+    background: var(--seam-button-subtle--hover);
+  }
+  &:active {
+    background: var(--seam-button-subtle--active);
+    @apply text-blue-600;
+  }
 }
 
 .button--link {
-    color: var(--seam-button-link);
-    &:hover {
-        @apply underline;
-        color: var(--seam-button-link--hover)
-    }
-    &:active {
-        color: var(--seam-button-link--active)
-    }
+  color: var(--seam-button-link);
+  &:hover {
+    @apply underline;
+    color: var(--seam-button-link--hover);
+  }
+  &:active {
+    color: var(--seam-button-link--active);
+  }
 }

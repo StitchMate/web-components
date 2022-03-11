@@ -1,59 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Atomico - Started</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
-  <link rel="stylesheet" href="./src/page.css" />
-  <script async type="module" src="./src/components.js"></script>
-  <script async type="module" src="./src/router.js"></script>
-  <script>
-    function toggleHidden() {
-      let el = document.getElementById("sidebar");
-      if (el.style.display == "none") {
-        el.style.display = "block";
-      } else {
-        el.style.display = "none";
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atomico - Started</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="./src/page.css" />
+    <script async type="module" src="./src/components.js"></script>
+    <script async type="module" src="./src/router.js"></script>
+    <script>
+      function toggleHidden() {
+        let el = document.getElementById("sidebar");
+        if (el.style.display == "none") {
+          el.style.display = "block";
+        } else {
+          el.style.display = "none";
+        }
       }
-    }
-  </script>
-</head>
+    </script>
+  </head>
 
-<body>
-  <a-router-redirect class="flex h-full">
-    <svg onclick="toggleHidden()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fixed text-blue-500 hover:cursor-pointer top-2 left-2 bg-white">
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-    <div id="sidebar" class="flex flex-col bg-white min-w-[300px] w-[300px] shadow-lg shadow-gray-700 p-4 hover:overflow-scroll overflow-auto">
-      <h1 class="whitespace-nowrap font-sans text-blue-500 text-xl pt-8">Seam Components - 0.0.1</h1>
-      <h2 class="whitespace-nowrap pt-4 font-semibold font-sans text-blue-500 text-lg">Components</h2>
-      <hr />
-      <h3 class="whitespace-nowrap pt-1 font-sans text-blue-500 text-lg">Atoms</h3>
-      <ul class="whitespace-nowrap list-disc pl-5 text-blue-500 text-sm">
-        <li><a class="whitespace-nowrap hover:underline" href="/button">Button</a></li>
-      </ul>
-      <h3 class="whitespace-nowrap pt-1 font-sans text-blue-500 text-lg">Wizard</h3>
-      <ul class="whitespace-nowrap list-disc pl-5 text-blue-500 text-sm">
-        <li><a class="whitespace-nowrap hover:underline" href="/button">Wizard Progress Bar</a></li>
-        <li><a class="whitespace-nowrap hover:underline" href="/button">Wizard Step Icon?</a></li>
-      </ul>
-    </div>
-    <div class="flex flex-col flex-grow p-8 hover:overflow-scroll overflow-auto h-full">
-      <a-router-switch>
-        <a-router-case path="/" for="home"></a-router-case>
-        <a-router-case path="/button" load="./src/seam-button/seam-button.examples.js"></a-router-case>
-        <h1 slot="home">Hi</h1>
-      </a-router-switch>
-    </div>
-  </a-router-redirect>
-</body>
-
+  <body>
+    <a-router-redirect class="flex h-full">
+      <svg
+        onclick="toggleHidden()"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="fixed text-blue-500 hover:cursor-pointer top-2 left-2 bg-white"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <div
+        id="sidebar"
+        class="
+          flex flex-col
+          bg-white
+          min-w-[300px]
+          w-[300px]
+          shadow-lg shadow-gray-700
+          p-4
+          hover:overflow-scroll
+          overflow-auto
+        "
+      >
+        <h1 class="whitespace-nowrap font-sans text-blue-500 text-xl pt-8">
+          Seam Components - 0.0.1
+        </h1>
+        <h2
+          class="
+            whitespace-nowrap
+            pt-4
+            font-semibold font-sans
+            text-blue-500 text-lg
+          "
+        >
+          Components
+        </h2>
+        <hr />
+        <h3 class="whitespace-nowrap pt-1 font-sans text-blue-500 text-lg">
+          Atoms
+        </h3>
+        <ul class="whitespace-nowrap list-disc pl-5 text-blue-500 text-sm">
+          <li>
+            <a class="whitespace-nowrap hover:underline" href="/button"
+              >Button</a
+            >
+          </li>
+        </ul>
+        <h3 class="whitespace-nowrap pt-1 font-sans text-blue-500 text-lg">
+          Form
+        </h3>
+        <ul class="whitespace-nowrap list-disc pl-5 text-blue-500 text-sm">
+          <li>
+            <a class="whitespace-nowrap hover:underline" href="/form/text-input"
+              >Text Input</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div
+        class="
+          flex flex-col flex-grow
+          p-8
+          hover:overflow-scroll
+          overflow-auto
+          h-full
+        "
+      >
+        <a-router-switch>
+          <a-router-case path="/" for="home"></a-router-case>
+          <a-router-case
+            path="/button"
+            load="/src/seam-button/seam-button.examples.js"
+          ></a-router-case>
+          <a-router-case
+            path="/form/text-input"
+            load="/src/seam-text-input/seam-text-input.examples.js"
+          ></a-router-case>
+          <h1 slot="home">Hi</h1>
+        </a-router-switch>
+      </div>
+    </a-router-redirect>
+  </body>
 </html>

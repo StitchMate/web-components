@@ -1,16 +1,19 @@
 let template = `
     <div class="flex flex-col px-4 pt-12 pb-8">
-        <h1 class="text-4xl font-sans">Button</h1>
-        <h2 class="whitespace-nowrap my-2 text-xl text-slate-600">&lt;seam-button&gt; | SeamButton</h2>
+        <h1 class="text-4xl font-sans">Text Input</h1>
+        <h2 class="whitespace-nowrap my-2 text-xl text-slate-600">&lt;seam-text-input&gt; | SeamTextInput</h2>
         <hr />
-        <h3 class="mt-4 mb-2 text-lg font-sans font-light">Buttons represent actions that may be taken by a user.</h3>
+        <h3 class="mt-4 mb-2 text-lg font-sans font-light">Text inputs represent a textual input a user may interact with.</h3>
         <div class="mt-2 mb-6 border rounded flex flex-col">
-            <div class="py-4 px-6">
-                <seam-button>Button</seam-button>
+            <div class="pt-4 pb-2 px-6 flex gap-2 items-end">
+                <seam-form>
+                  <seam-text-input name="firstName"></seam-text-input>
+                  <seam-button slot="submit">Submit</seam-button>
+                </seam-form>
             </div>
             <div class="py-4 px-6 bg-gray-100 border-transparent border-t border-t-gray-200">
                 <code class="language-html">
-                    &lt;seam-button&gt;&lt;/seam-button&gt;
+                    &lt;seam-text-input&gt;&lt;/seam-text-input&gt;
                 </code>
             </div>
         </div>
@@ -20,19 +23,11 @@ let template = `
         <p class="font-sans font-light">Use the <code>variant</code> attribute to set the button's variant.</p>
         <div class="mt-2 border rounded flex flex-col" >
             <div class="py-4 px-6">
-                <seam-button>Button</seam-button>
-                <seam-button variant="subtle">Button</seam-button>
-                <seam-button variant="link">Button</seam-button>
+                <seam-text-input></seam-text-input>
             </div>
             <div class="py-4 px-4 bg-gray-100 border-transparent border-t border-t-gray-200 flex flex-col">
                 <code class="language-html">
-                    &lt;seam-button variant="primary"&gt;&lt;/seam-button&gt;
-                </code>
-                <code class="language-html">
-                    &lt;seam-button variant="subtle"&gt;&lt;/seam-button&gt;
-                </code>
-                <code class="language-html">
-                    &lt;seam-button variant="link"&gt;&lt;/seam-button&gt;
+                    &lt;seam-text-input&gt;&lt;/seam-text-input&gt;
                 </code>
             </div>
         </div>
@@ -257,8 +252,8 @@ let template = `
                 <td class="py-4">Controls the base text size across all Seam components</td>
             </tr>
             <tr class="border-b border-b-200">
-                <td class="py-4"><code class="language-html">--seam-radius</code></td>
-                <td class="py-4">Controls how rounded the corners are</td>
+                <td class="py-4"><code class="language-html">--seam-button-radius</code></td>
+                <td class="py-4">Controls how rounded the button corners are</td>
             </tr>
             <tr class="border-b border-b-200">
                 <td class="py-4"><code class="language-html">--seam-button-primary</code></td>
@@ -313,7 +308,7 @@ document.querySelectorAll("code").forEach((el) => {
   // then highlight each
   hljs.highlightElement(el);
 });
-
-document.addEventListener("seam-click", (e) => {
-  console.log("button clicked", e);
+document.addEventListener("seam-submit", (e) => {
+  console.log("event", e);
+  console.log("data", Object.fromEntries(e.detail.data.entries()));
 });
